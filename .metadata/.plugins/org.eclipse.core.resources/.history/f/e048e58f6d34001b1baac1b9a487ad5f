@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="refresh" content="2;url=deptlist">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+	<p>session : ${emp}</p>
+	<p>application : ${myname}</p>
+	<p>request : ${myname2}</p>
+	</div>
+
+	<h1>${msg}</h1>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div align="center">
+	<h1>LOGIN</h1>
+		<form action="login" method="post">
+			<table>
+				<tr>
+				<th>ID</th>
+				<td><input type="text" name="employee_id" placeholder="ID"></td>
+				</tr>
+				<tr>
+				<th>PW</th>
+				<td><input type="password" name="phone_number"></td>
+				</tr>
+			</table>
+			<input type="submit" value="LOGIN">
+		</form>
+	</div>
+</body>
+</html>

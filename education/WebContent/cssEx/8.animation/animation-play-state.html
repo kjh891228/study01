@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>animation-play-state</title>
+		<style>
+		@-webkit-keyframes ani01{
+			from{
+				-webkit-transform:scale(0.2) rotate(0deg);
+			}				
+			to{
+				-webkit-transform:scale(1.0,1.0) rotate(360deg);	
+			}
+		}
+		@keyframes ani01{
+			from{
+				transform:scale(0.2) rotate(0deg);
+			}				
+			to{
+				transform:scale(1.0,1.0) rotate(360deg);
+			}
+		}
+		#animation_div{
+			margin:0 auto;
+			text-align:center;
+		}
+		#animation_div img{
+			display:block;
+			margin:0 auto;
+			-webkit-animation-name:ani01;
+			-webkit-animation-duration:2.5s;
+			-webkit-animation-iteration-count:infinite;
+			animation-name:ani01;
+			animation-duration:2.5s;
+			animation-iteration-count:infinite;
+		}		
+		.sample01 img{			
+			-webkit-animation-play-state:paused;
+			animation-play-state:paused;
+		}		
+		#animation_div:target img{			
+			-webkit-animation-play-state:running;
+			animation-play-state:running;
+		}
+		</style>
+	</head>
+	
+	<body>
+		<h1>animation-play-state 속성</h1>
+	     <div id="animation_div" class="sample01">
+	     	<img src="images/sun.png" alt="animation test image">
+	        <a href="#animation_div">애니메이션 실행 상태</a>
+	     </div>
+	</body>
+</html>

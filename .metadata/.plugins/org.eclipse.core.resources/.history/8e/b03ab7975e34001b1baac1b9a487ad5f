@@ -1,0 +1,15 @@
+package com.hansung.model;
+
+import com.hansung.model.EmpVO;
+
+public class LoginService {
+
+	LoginDAO dao = new LoginDAO();
+	
+	public EmpVO loginChk(int id, String pw) {
+		return dao.loginChk(id, pw);
+	}
+
+	
+	
+}

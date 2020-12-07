@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	/* h1의 바로뒤에 있는 h2 */
+	h1+h2{ color: red;}
+	
+	/* h1 뒤의 모든 h2 */ 
+	h1~h2{ background-color: yellow;}
+	
+	/* h1 뒤의 모든 h2 (중간에 다른 태그가 있어도 뒤에 있으면 다 적용된다) */
+	h1~h2:hover{ color: blue;} 
+</style>
+</head>
+<body>
+	<h2>h2</h2>
+	<h1>h1</h1>
+	<h2>h2</h2>
+	<h2>h2</h2>
+	<h3>h3</h3>
+	<h2>h2</h2>
+</body>
+</html>

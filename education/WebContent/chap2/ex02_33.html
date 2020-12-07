@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	img{
+		border: 3px dotted red;	
+	}
+	
+	/* position:static 	 ->	position의 default이며 위치조정이 불가 
+							content를 순서대로 노출시킨다 
+							img가 inline이므로 옆으로 나열된다 */
+	/* position:relative ->	나의 앞에 있는 content를 기준으로 상대경로 */
+	/* position:absolute ->	나의 부모영역을 기준으로 상대경로 */
+	/* position:fixed 	 ->	전체 스크린을 기준으로 상대경로 */
+	
+	.t1{ position: static;}
+	.t2{ position: static; top:200px; left: 150px;}
+	.t3{ position: relative; top:10px; left: 10px;}
+	.t4{ position: absolute; top:200px; left: 20px;}
+	.t5{ position: fixed; top:30px; right: 50px;}
+</style>
+</head>
+<body>
+	<img src="image/americano.jpg"  title="t1" 
+		class="t1" width="100" height="100">
+	<img src="image/cafelatte.jpg" title="t2" 
+		class="t2" width="100" height="100">
+	<img src="image/americano.jpg" title="t3" 
+		class="t3" width="100" height="100">
+	<img src="image/cafelatte.jpg" title="t4" 
+		class="t4" width="100" height="100">
+	<img src="image/americano.jpg" title="t5" 
+		class="t5" width="100" height="100">
+</body>
+</html>

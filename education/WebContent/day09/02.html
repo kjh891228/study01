@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+var a;	//undifined / 함수로 사용하기 위해서 전역변수로 설정함
+function f(){ 
+	here.innerHTML += "<br>"+a+" -> "+typeof(a); 
+};
+window.onload = function(){		// 로딩이 끝나고
+	btn1.onclick = function(){	// 버튼을 누르면
+		here.innerHTML = "";
+		// 코드실행
+		// 변수는 동적 타이핑이다. 동적으로 타입이 결정
+		// 변수타입 연습하기 
+		f();
+		a=100;				//number
+		f();
+		a="자바스크립트"		//string
+		f();
+		a=10>20;			//boolean
+		f();
+		a=[1,2,3,4,5];		//object
+		f();
+		a={name:"홍길동", major:"컴공"};	//object
+		here.innerHTML+="<br> a.name:"+a.name+", a.major:"+a.major;
+		f();
+		a = function(){ alert("aaa");};	//function
+		f();
+	};
+	
+	btn2.onclick = function(){
+		// 변수의 범위확인(scope)
+		// 		global, local, block
+		console.log("score1 = "+score1);
+		console.log("score2 = "+score2);
+		var score1 = 100;	//function 내에서만 유효(local변수)
+		// var이 붙어있는데 function 안에있으면 -> local변수
+		// var이 붙어있는데 function 밖에있으면 -> global변수
+		score2 = 200;
+	};
+	
+	btn3.onclick = function(){
+		alert(score2+" "+score3+" "+score4);
+	};
+};
+console.log("score3 = "+score3);
+var score3 = 300;	//global 변수
+score4 = 400;		//global 변수
+
+function test4(){	//명시적 함수 (명시적함수는 ;을 붙이지않음)
+	var v1=100;
+	var2=200;
+	//let는 block안에서만 유효
+	/* for (let i=0; i<5; i++) {
+		
+	} */
+	for (var i2=0; i2<5; i2++) {
+		
+	}
+	/* alert("i="+i); */
+	alert("i2="+i2);
+	{ var age=20; }
+	alert(age);
+}
+
+function test5(){
+	alert("i="+i);
+}
+
+</script>
+</head>
+<body>
+	<h1>자바스크립트 문법</h1>
+	<hr>
+	<button id="btn1">변수의 타입확인</button>
+	<button id="btn2">변수의 범위확인</button>
+	<button id="btn3">3번버튼</button>
+	<button id="btn4" onclick="test4();">4번버튼</button>
+	<button id="btn5" onclick="test5();">5번버튼</button>
+	<hr>
+	<div id="here"></div>
+</body>
+</html>

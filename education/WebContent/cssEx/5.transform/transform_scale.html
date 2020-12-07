@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>transform : scale()</title>
+		<style>
+			div {
+				position: absolute;
+				width: 300px;
+				height: 150px;
+				padding: 10px;
+				font-weight: bold;
+				color: #fff;
+			}
+			p {
+				margin: 0;
+			}
+			.sample01 {
+				top: 100px;
+				left: 60px;
+			}
+			.sample02 {
+				top: 300px;
+				left: 60px;
+			}
+			.sample03 {
+				top: 300px;
+				left: 330px;
+			}
+			.origin_div {
+				border: #000000 dashed 2px;
+				background: rgba(5,77,74,1);
+			}
+			.origin_div p {
+				font-size: 16px;
+				font-weight: bold;
+			}
+			.transform_div {
+				border: #FF0000 solid 2px;
+				background: rgba(255,100,0,0.8);
+				margin: 0;
+			}
+			.transform_div.sample01 {
+				-webkit-transform: scale(.5,.5);
+				transform: scale(.5,.5);
+				font-size: 2em;
+			}
+			.transform_div.sample02 {
+				-webkit-transform: scaleX(1.5);
+				transform: scaleX(1.5);
+			}
+			.transform_div.sample03 {
+				-webkit-transform: scaleY(1.5);
+				transform: scaleY(1.5);
+			}
+
+		</style>
+	</head>
+	<body>
+		<h1>transform : scale()</h1>
+		<div class="origin_div sample01">
+			<p>
+				요소 박스
+			</p>
+		</div>
+		<div class="transform_div sample01">
+			<p>
+				요소박스
+			</p>
+			<p>
+				transform
+				<br />
+				scale(0.5,0.5)
+			</p>
+		</div>
+	</body>
+</html>

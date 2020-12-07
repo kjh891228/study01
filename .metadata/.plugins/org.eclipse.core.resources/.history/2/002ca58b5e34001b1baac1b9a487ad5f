@@ -1,0 +1,13 @@
+package com.hansung.model;
+
+import com.hansung.model.EmpVO;
+
+public class LoginService {
+
+	public EmpVO loginChk(int id, String pw) {
+		return null;
+	}
+
+	
+	
+}

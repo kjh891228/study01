@@ -1,0 +1,15 @@
+package com.hansung.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class JobsDAO {
+	
+	public List<JobsVO> selectAll() {
+		List<JobsVO> jList = ArrayList<JobsVO>();
+		
+		
+		return null;
+	}
+	
+}

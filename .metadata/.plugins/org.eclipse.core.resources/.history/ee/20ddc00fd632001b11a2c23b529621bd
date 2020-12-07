@@ -1,0 +1,12 @@
+package com.hansung.model;
+
+public class DeptService {
+
+	DeptDAO deptDAO;
+	
+	//모든 부서 조회
+	public void selectAll() {
+		
+	}	
+	
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>column-fill</title>
+		<style>
+			#page {
+				width: 650px;
+				
+			}
+			div {
+				-moz-columns: 3 150px;
+				-moz-column-rule: #999 solid 2px;
+				-ms-columns: 3 150px;
+				-ms-column-rule: #999 solid 2px;
+				columns: 3 150px;
+				column-rule: #999 solid 2px;
+				margin-bottom:20px;
+				padding: 10px;
+				border: #666666 solid 4px;
+				height:150px;
+			}
+			#page h1{
+				padding:5px;
+				background:#054D4A;
+				color:#fff;
+			}
+			.box01 {
+				-moz-column-fill : balance;
+				-ms-column-fill : balance;
+				column-fill : balance;
+			}
+			.box02 {
+				-moz-column-fill : auto;
+				-ms-column-fill : auto;
+				column-fill : auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>column-fill 속성</h1>
+		<section id="page">			
+			<div class="box01">
+				<h1>웹 표준 기술</h1>
+				<p>
+					웹 표준 기술은 장치 운영 체제 독립적입니다.
+				</p>				
+				<p>
+					웹은 다양한 환경에서 정보를 제공하고자 하는 목적을 가지고 탄생했습니다. W3C의 웹 표준은 웹이 가진 목적을 구현하고, 웹이 가진 모든 가능성들을 끌어내기 위해 제정되었습니다.
+				</p>
+			</div>
+			<div class="box02">
+				<h1>웹 표준 기술</h1>
+				<p>
+					웹 표준 기술은 장치 운영 체제 독립적입니다.
+				</p>				
+				<p>
+					웹은 다양한 환경에서 정보를 제공하고자 하는 목적을 가지고 탄생했습니다. W3C의 웹 표준은 웹이 가진 목적을 구현하고, 웹이 가진 모든 가능성들을 끌어내기 위해 제정되었습니다.
+				</p>			
+			</div>
+		</section>
+	</body>
+</html>

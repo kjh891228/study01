@@ -1,0 +1,21 @@
+package com.hansung.model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.hansung.util.DBUtil;
+
+public class EmpDAO {
+
+	public List<EmpVO> selectAll() {
+		List<EmpVO> empList = new ArrayList<EmpVO>();
+		Connection conn = DBUtil.getConnection();
+		PreparedStatement st = null;
+		
+		
+		return empList;
+	}
+	
+}

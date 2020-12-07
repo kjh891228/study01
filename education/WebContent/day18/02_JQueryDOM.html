@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>02_JQueryDOM</title>
+<style type="text/css">
+h3 {
+	background-color: orange;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(function() {
+		$("#btn1").click(call1);
+		$("#btn2").click(call2);
+		$("#btn3").click(call3);
+		$("#btn4").click(call4);
+		$("#btn5").click(call5);
+		$("#btn6").click(call6);
+		$("#btn7").click(call7);
+		$("div>button").click(call8);
+	});
+	function call1() {
+		$("h3").css("color", "white");
+	}
+	function call2() {
+		$("h3:even").css("background-color", "gray");
+	}
+	function call3() {
+		$("h3").filter(":odd").css("background-color", "lightgray");
+	}
+	function call4() {
+		$("h3").filter(f).css("background-color", "purple");
+	}
+	function f(idx) {
+		return idx % 3 == 0;
+	}
+	function call5() {
+		$("h3:first").css("background-color", "lightnavy");
+		$("h3").filter(":first").css("border", "1px dotted yellow");
+		$("h3").eq(0).css("color", "yellow");
+		$("h3").eq(-1).css("color", "orange"); //eq(-1) == filter(":last")
+		//$("h3").filter(":last").css("color", "orange");	//위와같음
+	}
+	function call6() {
+		$("h3").css("border", "3px dotted yellow").add("button").css(
+				"background-color", "purple");
+	}
+	function call7() {
+		var obj = {
+			border : "3px solid yellow",
+			"background-color" : "navy",
+			color : "white"
+		};
+		$("h3,button").css(obj);
+	}
+	function call8() {
+		var s = $(this).text();
+/* 		if (s=="활성화하기") {
+			$(this).text("비활성화하기");
+			$(this).parent().css("background-color", "lightgray");
+			$(this).parent().find("span").text("활성화");
+		} else{
+			$(this).text("활성화하기");
+			$(this).parent().css("background-color", "white");
+			$(this).parent().find("span").text("비활성화");
+		} */
+		(s=="활성화하기")?	$(this).text("비활성화하기"):$(this).text("활성화하기");
+	}
+</script>
+</head>
+<body>
+	<button id="btn1">동적속성변경[all]</button>
+	<button id="btn2">동적속성변경[even]</button>
+	<button id="btn3">동적속성변경[filter(:odd)]</button>
+	<button id="btn4">동적속성변경[filter(function)]</button>
+	<button id="btn5">동적속성변경[eq(-1)]</button>
+	<hr>
+	<button id="btn6">group selector[add(button)]</button>
+	<button id="btn7">group selector["h3,button".css(obj)]</button>
+	<hr>
+	<div>
+		<span>현재 비활성화</span>
+		<button>활성화하기</button>
+	</div>
+	<hr>
+	<h3>JQuery</h3>
+	<h3>JQuery</h3>
+	<h3>JQuery</h3>
+	<h3>JQuery</h3>
+	<h3>JQuery</h3>
+</body>
+</html>

@@ -1,0 +1,8 @@
+package com.hansung.model;
+
+public class JobsVO {
+	
+	private String job_id, job_title;
+	private int min_salary, max_salary;
+	
+}

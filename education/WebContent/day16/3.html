@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+window.onload = function(){
+	btn1.onclick = function(){
+		//페이지 전환없이 요청하고자한다.
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState==4 && xhr.status == 200){
+				here.innerHTML = xhr.responseText;
+			}
+		};
+		//0(open안함),1(send안함),2,3,4
+		 
+		xhr.open("get","login.jsp?myname="+myname.value, true);
+		xhr.send(null);
+		 
+		//here.innerHTML = b - a;
+		//페이지가 전환된다. 
+		//location.href = "login.jsp";
+	};
+};
+</script>
+</head>
+<body>
+<h1>Ajax 연습(JavaScript)</h1>
+<input type="text" id="myname">
+<button id="btn1">Ajax1</button>
+<button id="btn2">Ajax2</button>
+<button id="btn3">네이버</button>
+<hr>
+<div id="here">여기</div>
+<script>
+var xhr;
+btn2.addEventListener("click", f);
+btn3.addEventListener("click", f2);
+function f2(){
+	xhr = new XMLHttpRequest();
+	console.log(xhr);
+	xhr.onreadystatechange = display;
+	//도메인이름이 다르면 Ajax불가 (Cors정책)
+	xhr.open("get", "getNaver.jsp");
+	xhr.send();
+}
+
+function f(){
+	xhr = new XMLHttpRequest();
+	console.log(xhr);
+	xhr.onreadystatechange = display;
+	//도메인이름이 다르면 Ajax불가 (Cors정책)
+	//해결방법1 : 서버쪽에서 허용 ...Access-Control-Allow-Origin
+	xhr.open("get", "http://223.194.145.107:8888/DynamicWebProject/emp.jsp");
+	xhr.send();
+}
+function display(){
+	//0(open전),1(send전),2(받은data없음),3(data일부받음),4(data모두받음)
+	if(xhr.readyState==4 && xhr.status==200){
+		here.innerHTML = xhr.responseText;
+	}
+}
+</script>
+</body>
+</html>
+
+
+
+

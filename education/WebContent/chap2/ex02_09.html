@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	/* class 이름이 header 인 element 안의 모든 h3 */
+	.header h3 { color: red; }
+	
+	.header > h3 { border: dotted; }
+	
+	/* class 이름이 footer 인 element 의 자식인 h3 */
+	.footer > h3 { color: blue; }
+	
+	.footer h3 { border: double; }
+</style>
+
+</head>
+<body>
+	<div class="header">
+		<h3>test1</h3>
+		<div class="hea">
+			<h3>header 안의 hea 안의 h3</h3>
+			<section>
+			<h3>header 안의 section 안의 h3</h3>			
+			</section>
+		</div>
+	</div>
+	
+	<h3>그냥 h3</h3>
+	
+	<div class="footer">
+		<h3>footer 안의 h3</h3>
+		<div class="foo">
+			<h3>footer 안의 foo 안의 h3</h3>
+		</div>
+	</div>
+</body>
+</html>

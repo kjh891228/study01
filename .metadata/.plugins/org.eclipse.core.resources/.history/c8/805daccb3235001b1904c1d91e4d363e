@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>first page</title>
+<style type="text/css">
+	li{ list-style: none; }
+</style>
+</head>
+<body>
+<div align="center">
+	<h1>FIRST PAGE</h1>
+	<ol>
+		<li><a href="dept/deptlist">부서목록</a></li>
+		<li><a href="stu/stuList">학생목록</a></li>
+		<li><a href="jobs/jobsList">직업목록</a></li>
+		<li><a href="emp/empList">직원목록</a></li>
+	</ol>
+	<form action="test.jsp">
+		<input type="text" name="myname" value="al">
+		<input type="submit" value="SEND">
+	</form>
+</div>
+</body>
+</html>

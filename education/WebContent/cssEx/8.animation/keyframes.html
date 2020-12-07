@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>@keyframes</title>
+		<style>
+		@-webkit-keyframes ani01 {
+			from{
+				width: 100px;
+				background: rgba(0,0,255,0.5);
+			}
+			50%{
+				-webkit-transform:scale(1.2,1.2);
+			}
+			to {
+				width: 400px;
+				background: rgba(255,0,0,0.5);
+			}
+		}
+		@keyframes ani01{
+				from{
+					width: 100px;
+					background: rgba(0,0,255,0.5);
+				}	
+				50%{
+				transform:scale(1.2,1.2);
+				}	
+				to {
+					width: 400px;
+					background: rgba(255,0,0,0.5);
+				}
+			}		
+		.animation_div {
+			margin: 0 auto;
+			width: 400px;
+			margin-bottom: 20px;
+			height: 50px;
+			border: #000000 dashed 2px;
+			-webkit-animation-duration: 2s;
+			animation-duration: 2s;
+		}
+		.sample01 {
+			-webkit-animation-name: ani01;
+			animation-name: ani01;
+		}
+		</style>
+	</head>
+	<body>
+		<h1>@keyframes 규칙</h1>
+		<div class="animation_div sample01">
+			@keyframes 규칙을 사용하여 ani01이라는 이름의 애니메이션을 정의 함
+		</div>
+	</body>
+</html>

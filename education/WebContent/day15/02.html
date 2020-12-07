@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+<title>이벤트연습</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style type="text/css">
+#here {
+	border: 5px dotted gray;
+	padding: 10px;
+	margin: 10px;
+	overflow: auto;
+}
+
+.active {
+	border: 1px red solid;
+}
+</style>
+<script src="../day13/external.js"></script>
+<script src="../day13/underscore-min.js"></script>
+<script>
+	function call() {
+		return this;
+	}
+	window.onload = function() {
+		here.innerHTML = call();
+		btn4.onclick = function() {
+			btn2.click();
+		}
+		btn3.onclick = call();
+		btn2.onclick = function(ee) {
+			here.innerHTML = "this.innerHTML : " + this.innerHTML;
+			here.innerHTML += "<br>" + ee;
+ 			for ( var p in ee) {
+				here.innerHTML += "<br>"+p+" : " + ee[p];
+			}
+			position.innerHTML = `x = ${ee.x} / y = ${ee.y}<br>`;
+		}
+		btn1.onclick = function() {
+			alert(`버튼을눌렀다`);
+			btn1.onclick = null;
+		}
+	}
+</script>
+</head>
+<body>
+
+	<div class="container">
+		<h2>이벤트연습</h2>
+		<button id="btn1" type="button" class="btn btn-success">이벤트/제거</button>
+		<button id="btn2" type="button" class="btn btn-success">이벤트/this1</button>
+		<button id="btn3" type="button" class="btn btn-success">이벤트/this2</button>
+		<button id="btn4" type="button" class="btn btn-success">이벤트/강제발생</button>
+		<div id="position">마우스로 클릭한 위치</div>
+	</div>
+	<hr>
+	<div id="here"></div>
+</body>
+</html>

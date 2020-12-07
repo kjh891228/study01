@@ -1,0 +1,110 @@
+package com.hansung.model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.hansung.util.DBUtil;
+
+public class JobsDAO {
+	
+	public List<JobsVO> selectAll() {
+		List<JobsVO> jList = new ArrayList<JobsVO>();
+		Connection conn = DBUtil.getConnection();
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		String sql = "select * from jobs";
+		
+		try {
+			st = conn.prepareStatement(sql);
+			rs = st.executeQuery();
+			while (rs.next()) {
+				JobsVO vo = new JobsVO(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getInt(4));
+				jList.add(vo);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBUtil.close(conn, st, rs);
+		}
+		return jList;
+	}
+	
+	public JobsVO selectById(String jId) {
+		Connection conn = DBUtil.getConnection();
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		String sql = "select * from jobs where job_id=?";
+		JobsVO vo = null;
+		
+		try {
+			st = conn.prepareStatement(sql);
+			st.setString(1, jId);
+			rs = st.executeQuery();
+			if (rs.next()) {
+				vo = new JobsVO(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getInt(4));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBUtil.close(conn, st, rs);
+		}
+		return vo;
+	}
+	
+	public int insert(JobsVO vo) {
+		Connection conn = DBUtil.getConnection();
+		PreparedStatement st = null;
+		String sql = "insert into jobs values(?, ?, ?, ?)";
+		int res = 0;
+		
+		try {
+			st = conn.prepareStatement(sql);
+			st.setString(1, vo.getJob_id());
+			st.setString(1, vo.getJob_title());
+			st.setInt(3, vo.getMin_salary());
+			st.setInt(4, vo.getMax_salary());
+			res = st.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBUtil.close(conn, st, null);
+		}
+		return res;
+	}
+	
+	public int update(JobsVO vo) {
+		Connection conn = DBUtil.getConnection();
+		PreparedStatement st = null;
+		String sql = "update jobs "
+				+ "set job_id=?, "
+				+ "job_title=?"
+				+ "min_salary=?"
+				+ "max_salary=?";
+		int res = 0;
+		
+		try {
+			st = conn.prepareStatement(sql);
+			st.setString(1, vo.getJob_id());
+			st.setString(1, vo.getJob_title());
+			st.setInt(3, vo.getMin_salary());
+			st.setInt(4, vo.getMax_salary());
+			res = st.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBUtil.close(conn, st, null);
+		}
+		return res;
+	}
+	
+}

@@ -1,0 +1,29 @@
+package com.hansung.model;
+
+import java.util.List;
+
+public class StudentService {
+	
+	StudentsDAO studentDAO;
+
+	public List<StudentsVO> selectAll() {
+		return studentDAO.selectAll();
+	}
+	
+	public StudentsVO selectById(String stuId) {
+		return studentDAO.selectById(stuId);
+	}
+	
+	public int stuDelete(String stuId) {
+		return studentDAO.stuDelete(stuId);
+	}
+	
+	public int stuUpdate(StudentsVO stu) {
+		return studentDAO.stuUpdate(stu);
+	}
+	
+	public int stuInsert(StudentsVO stu) {
+		return studentDAO.stuInsert(stu);
+	}
+	
+}

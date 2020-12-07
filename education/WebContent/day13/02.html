@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+<title>함수</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style type="text/css">
+#here {
+	border: 5px dotted gray;
+	/* height: 400px; */
+	padding: 10px;
+	margin: 10px;
+	overflow: auto;
+}
+</style>
+<script src="underscore-min.js"></script>
+<script src="external.js"></script>
+</head>
+<body>
+
+	<div class="container">
+		<h2>내장객체</h2>
+		<button id="btn1" type="button" class="btn btn-success">Number</button>
+		<button id="btn2" type="button" class="btn btn-success">String</button>
+		<button id="btn3" type="button" class="btn btn-success">Array</button>
+		<button id="btn4" type="button" class="btn btn-success">Array2</button>
+		<button id="btn5" type="button" class="btn btn-success">Array
+			Sort</button>
+		<button id="btn6" type="button" class="btn btn-success">여러속성으로
+			Sort</button>
+	</div>
+	<hr>
+	<div id="here">
+		요기<br>
+	</div>
+	<script>
+		var students = [];
+
+		students.push(new Student("홍길동", 1, 5, 2, 2));
+		students.push(new Student("고길동", 3, 2, 1, 5));
+		students.push(new Student("김길동", 5, 1, 3, 3));
+		students.push(new Student("김길동", 2, 3, 5, 4));
+		students.push(new Student("박길동", 6, 4, 4, 1));
+		students.push(new Student("김길동", 4, 6, 6, 6));
+
+		btn6.onclick = function() {
+			//asc 	: (앞<뒤)
+			//desc 	: (앞<뒤)*-1 
+			students.sort(function(stu1, stu2) {
+				if (stu1.getName() > stu2.getName()) {
+					return 1;
+				} else if (stu1.getName() == stu2.getName()) { //name이 같은경우
+					return stu2.kor - stu1.kor; //desc by kor
+				} else {
+					return -1;
+				}
+			});
+			here.innerHTML = students;
+		}
+
+		btn5.onclick = function() {
+
+			students.sort();
+			here.innerHTML = students;
+
+			students.sort(function(aa, bb) {
+				return aa.getAve() - bb.getAve();
+			});
+			here.innerHTML += "<hr><h2> - asc</h2><br>" + students;
+
+			students.sort(function(aa, bb) {
+				return bb.getAve() - aa.getAve();
+			});
+			here.innerHTML += "<hr><h2> - desc</h2><br>" + students;
+
+			//_.sortBy(students, "name");
+			here.innerHTML += "<hr><h2>_.sortBy(science)</h2><br>"
+					+ _.sortBy(students, function(students) {
+						return students.science;
+					});
+			here.innerHTML += "<hr><h2>_.sortBy(math)</h2><br>"
+					+ _.sortBy(students, function(students) {
+						return students.math;
+					});
+			here.innerHTML += "<hr><h2>_.sortBy(eng)</h2><br>"
+					+ _.sortBy(students, function(students) {
+						return students.eng;
+					});
+			here.innerHTML += "<hr><h2>_.sortBy(kor)</h2><br>"
+					+ _.sortBy(students, function(students) {
+						return students.kor;
+					});
+			here.innerHTML += "<hr><h2>_.sortBy(name)</h2><br>"
+					+ _.sortBy(students, function(students) {
+						return this.getName();
+					});
+			here.innerHTML += "<hr><h2>원본</h2>" + students;
+		}
+
+		btn4.onclick = function() {
+			var arr = [ 10, 40, 20, 100, 90 ];
+			here.innerHTML = arr;
+			here.innerHTML += "<br>" + arr.join(" / ");
+			arr.sort();
+			here.innerHTML += "<br>" + arr.join(" / ");
+			//ascending sort : < = >, -1, 0, 1
+			//descending sort : > = <
+			arr.sort(function(aa, bb) {
+				return aa - bb; //ascending sort
+			})
+			here.innerHTML += "<br>asc : " + arr.join(" / ");
+			arr.sort(function(aa, bb) {
+				return bb - aa; //descending sort
+			})
+			here.innerHTML += "<br>desc : " + arr.join(" / ");
+		}
+
+		btn3.onclick = function() {
+			var arr1 = new Array();
+			var arr2 = [];
+			var arr3 = new Array(10);
+			var arr4 = new Array(100, 200, 300, 400, 500);
+
+			here.innerHTML = "arr1.length : " + arr1.length + "<br>";
+			here.innerHTML += "arr2.length : " + arr2.length + "<br>";
+			here.innerHTML += "arr3.length : " + arr3.length + "<br>";
+			here.innerHTML += "arr4.length : " + arr4.length + "<br>";
+
+			here.innerHTML += "배열 초기길이는 0";
+			here.innerHTML += "<hr>";
+
+			here.innerHTML += "arr1[0] : " + arr1[0] + "<br>";
+			here.innerHTML += "arr2[0] : " + arr2[0] + "<br>";
+			here.innerHTML += "arr3[0] : " + arr3[0] + "<br>";
+			here.innerHTML += "arr4[0] : " + arr4[0] + "<br>";
+
+			here.innerHTML += "배열 초기값은 undefined";
+		}
+
+		btn2.onclick = function() {
+			var s1 = "오늘은 금요일 입니다.";
+			var s2 = new String("오늘은 수요일 입니다.");
+
+			here.innerHTML = "s1 길이 : " + s1.length + "<br>";
+			here.innerHTML += "s2 길이 : " + s2.length + "<br>";
+
+			here.innerHTML += "s1 slice : " + s1.slice(4, 7) + "<br>";
+			here.innerHTML += "s2 slice : " + s2.slice(4, 7) + "<br>";
+
+			here.innerHTML += "s1 substr : " + s1.substr(4, 3) + "<br>";
+			here.innerHTML += "s2 substr : " + s2.substr(4, 3) + "<br>";
+
+			here.innerHTML += "s1 substring : " + s1.substring(4, 7) + "<br>";
+			here.innerHTML += "s2 substring : " + s2.substring(4, 7) + "<br>";
+		}
+
+		btn1.onclick = function() {
+			//내장객체 : javascript가 제공하는 객체 
+			//ex > Number, String, Date, Array, ...
+			var a = 3.141592; //기본형 : java에서는 값을 할당, 비교, 계산목적
+			var b = new Number(3.141592); //객체 : java에서는 기본형의 기능 + 추가기능(메서드)가 있다
+			here.innerHTML = a.toFixed(2); //javascript에서는 기본형,객체형 다름없이 기능사용가능
+			here.innerHTML += "<br>" + b.toFixed(2);
+
+			b.getTest = function() {
+				here.innerHTML += "<br>b.getTest";
+			};
+			b.getTest();
+
+			/* a.getTest = function() {
+				here.innerHTML += "<br>a.getTest";
+			};
+			a.getTest(); */
+
+			var c = new Number(123);
+			c.getMok = function() {
+				return Math.floor(this / 10);
+			};
+			here.innerHTML += "<br>" + c.getMok();
+
+			here.innerHTML += "<br>" + Number.MAX_VALUE;
+			here.innerHTML += "<br>" + Number.MIN_VALUE;
+
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>backface-visibility</title>
+		<style>
+			.sample01{
+			  top:80px;
+			  left:10px;
+			}
+			.sample02{
+			  top:80px;
+			  left:220px;
+			}
+			.parent_div{
+				position:absolute;
+				width:120px;
+				height:150px;
+				padding:10px;
+				border:#ccc solid 5px;
+				background:rgba(5,77,74,1);
+				font-weight:bold;
+				color:#fff;
+				text-align:center;
+			}
+			.child_div{
+				margin:10px auto;
+				width:100px;
+				height:100px;
+				border:#FF0000 solid 2px;
+				background: rgba(255,100,0,0.8);
+				-webkit-transform:rotateY(180deg);
+				transform:rotateY(180deg);
+			}
+			.sample01 .child_div{				
+				-webkit-backface-visibility:visible;
+				backface-visibility:visible;
+			}
+			.sample02 .child_div{				
+				-webkit-backface-visibility:hidden;
+				backface-visibility:hidden;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<h1>backface-visibility 속성</h1>
+	    <div class="parent_div sample01">
+	    	visibility
+	    	<div class="child_div">visible</div>	    
+	    </div>
+	    <div class="parent_div sample02">
+	    	hidden
+	        <div class="child_div">hidden</div>
+	    </div>
+	</body>
+</html>
+

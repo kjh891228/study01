@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+
+	p.t2{ font-weight: bold; color: green;}
+	
+	div li { background-color: orange; }
+	div > span { color: red; }
+	div > p > span { color: blue; }
+	
+	#ul > li { background-color: lightgray; }
+	
+</style>
+</head>
+<body>
+
+<div>
+	<span>div의 자식인 span</span>
+	<p>p tag</p>
+	<p>p tag <span>div의 자식의 자식인 span</span></p>
+	<p>p tag <span>배우기</span></p>
+	<span>div의 자식인 span</span>
+</div>
+
+<div>
+	
+	<ul>
+		<li>월요일</li>
+		<li>화요일</li>
+		<li>수요일</li>
+	</ul>
+</div>
+
+	<ul id="ul">
+		<li>월요일</li>
+		<li>화요일</li>
+		<li>수요일</li>
+	</ul>
+	<p class="t2">Have a nice day</p>
+	<span class="t2">좋은 하루 되세요</span>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>animation-duration</title>
+		<style>
+			@-webkit-keyframes ani01{
+				from{
+					-webkit-transform:scale(0) rotateY(0deg);
+				}					
+				to{
+					-webkit-transform:scale(1.0,1.0) rotateY(360deg);	
+				}
+			}
+			@keyframes ani01{
+				from{
+					transform:scale(0) rotateY(0deg);
+				}					
+				to{
+					transform:scale(1.0,1.0) rotateY(360deg);
+				}
+			}					
+			.animation_div{
+				position:absolute;
+				text-align:center;
+			}
+			.sample01{
+				left:50px;
+			}			
+			.sample02{
+				left:400px;
+			}			
+			.animation_div img{
+				-webkit-animation-name:ani01;
+				animation-name:ani01;
+			}			
+			.sample01 img{
+				-webkit-animation-duration:2s;
+				animation-duration:2s;
+			}
+			.sample02 img{				
+				-webkit-animation-duration:5s;
+				animation-duration:5s;
+			}		
+		</style>
+	</head>
+	
+	<body>
+		<h1>animation-duration 속성</h1>
+	     <div class="animation_div sample01">
+	     	<img src="images/sun.png" alt="animation test image">
+	        <p>2초동안 실행</p>
+	     </div>
+	     <div class="animation_div sample02">
+	     	<img src="images/sun.png" alt="animation test image">
+	     	<p>5초동안 실행</p>
+	     </div>
+	</body>
+</html>

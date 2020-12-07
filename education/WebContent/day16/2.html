@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+  div{ border : 1px solid red; padding: 10px;}
+  ul { background-color: gray;}
+  li { background-color: lightblue;border : 1px solid green;}
+</style>
+</head>
+<script>
+window.onload = function(){
+	
+	btn3.addEventListener("click", function(e) {
+		console.log(e);
+		try{ 
+			var arr = new Array(1000000000000000000000000000000);
+			alert(arr.length);
+		}catch(exception){
+			console.log(exception.name);
+			console.log(exception.message);
+		}finally{
+			console.log("예외발생여부 무관하게 반드시 수행한다.")
+		}
+		here.innerHTML = "정상종료";
+		
+	});
+	
+	
+	/* btn1.attachEvent("onclick", function(){
+		here.innerHTML = this.innerHTML;
+	}); */
+	//표준
+	btn2.addEventListener("click", function(){
+		here.innerHTML = this.innerHTML;
+	}, false);
+	
+	
+	var divs = document.querySelectorAll("div");
+	divs.forEach(function(dd){
+		dd.onclick = function(ee){ 
+			alert("div");
+			var event = ee ||window.event;
+			event.stopPropagation(); //이벤트전달막기 
+		};
+	});
+	var ul = document.querySelector("ul");
+	ul.onclick = function(ee){
+		alert('ul');
+		var event = ee ||window.event;
+		event.stopPropagation(); //이벤트전달막기 	
+	};
+	
+	var lis = document.querySelectorAll("li");
+	lis.forEach(function(aa, idx){
+		if(idx<=1){
+			aa.onclick = function(ee){
+				alert( aa.innerHTML  );
+				var event = ee ||window.event;
+				event.stopPropagation(); //이벤트전달막기 
+			};
+		} else {
+			aa.onclick = function(ee){
+				 
+				var event = ee ||window.event;
+				event.stopPropagation(); //이벤트전달막기 
+			};
+			 
+		}
+		
+		
+	});
+	
+}; 
+</script>
+<body>
+<div>
+ <div>
+   <ul>
+     <li>HTML5</li>
+     <li>CSS3</li>
+     <li>JAvaScript</li>
+     <li>jQuery</li>
+   </ul>
+ </div>
+</div>
+<button id="btn1">IE이벤트모델</button>
+<button id="btn2">표준이벤트모델</button>
+<button id="btn3">예외처리</button>
+<div id="here">여기</div>
+<script>
+//btn1.onclick = function(){};
+var arr = [10,20,30];
+arr.forEach(function(su){
+	console.log(su);
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

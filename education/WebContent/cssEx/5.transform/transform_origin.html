@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>transform-origin</title>
+		<style>
+			div {
+				width: 300px;
+				height: 150px;
+				padding: 10px;
+				font-weight: bold;
+				background:#FFFF00;
+			}
+			.origin_div{
+				-webkit-transform:scale(0.7,0.7);
+				-webkit-transform-origin:right bottom;
+				transform:scale(0.7,0.7);
+				transform-origin:right bottom;
+				background:#FF00FF;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>transform-origin 속성</h1>
+		<div>
+			<p>
+				요소 박스
+			</p>
+		</div>
+		<div class="origin_div">
+			<p>
+				transform-origin이 적용된 박스
+			</p>
+		</div>
+
+	</body>
+</html>

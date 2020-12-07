@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="ex01_26.jsp">
+		이메일: <input type="email" name=" email"><br> 
+		URL : <input type="url" name="url"><br> 
+		
+		<!-- 	정규표현식 (Regular Expression) 
+				[] 		: 선택
+				[-]		: 범위 	[0-9] = 0~9
+				{2}		: 자릿수 	2자리
+				{2,3}	: 2자리~3자리    				-->
+		전화번호: <input type="tel" name="tel" 
+				pattern="0[1-2]{1,2}-[0-9]{3,4}-[0-9]{4}"><br> 
+
+		색상: <input type="color" name="color"><br> 
+		월: <input type="month" name="month"><br> 
+		날짜: <input type="date"name="date"><br> 
+		주: <input type="week" name="week"><br> 
+		시간: <input type="time" name="time"><br> 
+		지역시간: <input type="datetime-local" name="datetime-local"><br> 
+		숫자: <input type="number" name="number" min="1" max="10" step="2"><br>
+		범위: <input type="range" name=" range" min="1" max="10" step="2"><br>
+		Search: <input type="search" name="search"><br>
+		<input type="submit" value="제출">
+	</form>
+</body>
+</html>

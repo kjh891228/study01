@@ -1,0 +1,143 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script>
+	window.onload = call;
+	function call() {
+		var bs = document.getElementsByTagName("button");
+		for (var i = 0; i < bs.length; i++) {
+			bs[i].onclick = call2(i);
+		}
+		btn4.onclick = call4;
+		btn5.onclick = call5;
+		function call4() {
+			var color = [ "red", "orange", "yellow", "green", "blue", "navy",
+					"purple" ];
+			btn5.disabled = "";
+			itv = setInterval(function() {
+				var su = Math.floor(Math.random() * (color.length));
+				document.body.style.backgroundColor = color[su];
+			}, 1000);
+		}
+		function call5() {
+			clearInterval(itv);
+			btn5.disabled = "disabled";
+		}
+
+	}
+	function call2(param) {
+		return function() {
+			here.innerHTML = (param + 1);
+		};
+	}
+</script>
+</head>
+<body>
+	<button name="button" class="btn btn-success">함수1</button>
+	<button name="button" class="btn btn-success">함수2</button>
+	<button name="button" class="btn btn-success">함수3</button>
+	<input type="button" value="배경색바꾸기(시작)" id="btn4"
+		class="btn btn-success">
+	<input type="button" value="배경색바꾸기(중단)" id="btn5"
+		class="btn btn-success" disabled="disabled">
+	<input type="button" value="인코딩" id="btn6" class="btn btn-success">
+	<input type="button" value="eval" id="btn7" class="btn btn-success">
+	<hr>
+
+	<input type="number" id="su1" value="100">
+	<select id="op">
+		<option>+</option>
+		<option>-</option>
+		<option selected="selected">*</option>
+		<option>/</option>
+	</select>
+	<input type="number" id="su2" value="200">
+	<input type="button" value="계산!" id="btn8" class="btn btn-success">
+	<input type="number" id="su3">
+	<hr>
+	<input type="button" value="defaultParam" id="btn9"
+		class="btn btn-success">
+	<hr>
+	<input type="button" value="화살표함수" id="btn10" class="btn btn-success">
+	<hr>
+	<input type="button" value="전개연산자" id="btn11" class="btn btn-success">
+	<hr>
+	<div id="here">여기</div>
+
+	<script>
+		btn11.onclick = function() {
+			test(10,20,30,40);
+			var arr1 = [1,2];
+			var arr2 = [10,20];
+			test(...arr1, ...arr2);
+		}
+		function test(){
+			var sum;
+			for (var i = 0; i < arguments.length; i++) {
+				sum+=Number(arguments[i]);
+			}
+			here.innerHTML = "방법1 : "+sum;
+		}
+		function test(...arg) {
+			var sum = (arg[0] + arg[1] + arg[3] + arg[4]);
+			here.innerHTML = "방법2 : "+sum;
+		}
+		
+		btn10.onclick = function() {
+			//익명함수
+			//var f = function(a,b){ return a+b; }
+			
+			//화살표함수
+			var f = (a,b)=>a+b;
+			here.innerHTML = f(10,20);
+		}
+		
+		btn9.onclick = function() {
+			call9(1, 2, 3);
+			call9(1, 2);
+			call9(100);
+		}
+		function call9(a, b, c) {
+			//default값 주기
+			
+			//방법1 : 함수안에서 필터링1
+			/* if (!a) {a=0;}
+			if (!b) {b=0;}
+			if (!c) {c=0;} */
+			
+			//방법2 :  함수안에서 필터링2
+			a = a || 0;
+			b = b || 0;
+			c = c || 0;
+			here.innerHTML += "<br>" + (a + b + c);
+		} 
+		function call9(a=0, b=0, c=0) {
+			//방법3 : 매개변수 넣을때 아예 디폴트값을 넣을 수 있음
+			here.innerHTML += "<br>" + (a + b + c);			
+		}
+
+		btn8.onclick = function() {
+			su3.value = eval(su1.value + op.value + su2.value);
+		}
+
+		btn7.onclick = function() {
+			var s = "a=10;b=20;c=a+b;here.innerHTML=c;";
+			eval(s);
+		}
+
+		btn6.onclick = function() {
+			var url = "https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=코로나";
+			var res = encodeURIComponent(url);
+			here.innerHTML = res;
+
+			var res = decodeURIComponent(res);
+			here.innerHTML += "<br>" + res;
+		}
+	</script>
+</body>
+</html>

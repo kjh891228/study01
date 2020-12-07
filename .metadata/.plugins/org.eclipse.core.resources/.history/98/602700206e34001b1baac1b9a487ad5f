@@ -1,0 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<style>
+	*{
+		background-color: lightgray;
+	}
+	#title{
+		background-color: orange;
+		padding: 15px;
+	}
+</style>
+<div id="title">
+	<p>session : ${emp.first_name} ${emp.last_name}</p>
+	<p>application : ${myname}</p>
+	<p>request : ${myname2}</p>
+</div>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>transition-property</title>
+		<style>
+			#box div {
+				margin-bottom: 20px;
+				width: 100px;
+				height: 50px;
+				padding: 10px;
+				line-height: 50px;
+				font-weight: bold;
+				color: #fff;
+				border: #ccc solid 5px;
+				background: rgba(5,77,74,1);
+			}
+			#box:target div {
+				width: 400px;
+				background: rgba(255,100,0,0.8);
+				transition-duration: 3s;
+				}
+			#box .box01 {
+				transition-property: all;
+			}
+			#box .box02 {
+				transition-property: background;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>transition-property 속성</h1>
+		<div id="box">
+			<div class="box01">
+				모든 속성 값을 변환 시킴
+			</div>
+			<div class="box02">
+				background 속성 값만 변환 시킴
+			</div>
+		</div>
+		<a href="#box">Click</a>
+	</body>
+</html>
+

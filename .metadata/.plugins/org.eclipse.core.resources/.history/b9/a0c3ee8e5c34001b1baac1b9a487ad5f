@@ -1,0 +1,9 @@
+package com.hansung.model;
+
+public class EmpDAO {
+
+	public void name() {
+		
+	}
+	
+}

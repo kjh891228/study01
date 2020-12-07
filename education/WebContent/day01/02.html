@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<style type="text/css">
+		h2 {
+			/* 이런 방식은 internal style */
+			background-color: purple;
+			color: yellow;
+		}
+		
+		h6 {
+			/* h6 태그여도 css로 얼마든지 글씨크기 조정 가능 */
+			font-size: 30px;	
+		}
+	</style>
+	
+	<script type="text/javascript">
+		/* 이건 javascript */
+		alert("꺅!!");
+	</script>
+
+</head>
+	
+<body>
+
+	<h1 style="background-color: orange;">
+	<!-- 이런 방식은 인라인css  --> 
+	<!-- 이런 방식은 좋지 않은 방식이다 -->
+		안뇨옹
+	</h1>
+	<h2>안뇨옹</h2>
+	<h3>안뇨옹</h3>
+	<h4>안뇨옹</h4>
+	<h5>안뇨옹</h5>
+	<h6>안뇨옹</h6>
+	
+	<button onclick="alert('집에가고싶다');">클릭!</button>
+	
+	<button id="btn2">클릭!</button>
+	
+	<script type="text/javascript">
+		btn2.onclick = function(){
+			alert("오잉?");
+		};
+	</script>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

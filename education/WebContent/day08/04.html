@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+
+	function call() {
+		var a = 10;
+		alert(a);
+		//var alert = 20;
+		a = "문자열을'저장'한다";
+		console.log(a);
+		a = '문자열을"저장"한다';
+		console.log(a);
+		a = `문자열을"저장"한다`;	// backtick `
+		console.log(a);
+	}
+	call();
+	call2();
+	call3();
+	
+	function call2(){
+		var a=10;
+		var b=a>10 && ++a>20;
+		console.log("a = "+a);
+		console.log("b = "+b);
+		
+		var b=a>10 & ++a>20;
+		console.log("a = "+a);
+		console.log("b = "+b);
+	};
+	
+	function call3(){
+		var a=10;
+		var b=a>=10 || ++a>20;
+		console.log("a = "+a);
+		console.log("b = "+b);
+		
+		var b=a>=10 | ++a>20;
+		console.log("a = "+a);
+		console.log("b = "+b);
+	};
+	
+</script>
+
+</head>
+<body>
+	
+</body>
+</html>

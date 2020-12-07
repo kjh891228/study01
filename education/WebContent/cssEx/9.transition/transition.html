@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>transition</title>
+		<style>
+			.transition_div {
+				margin-bottom: 20px;
+				width: 100px;
+				height: 50px;
+				border: #000000 dashed 2px;
+				background: rgba(0,0,255,0.5);
+			}
+			#exsample:target .transition_div {
+				width: 400px;
+				background: rgba(255,0,0,0.5);
+			}
+			.sample01 {
+				transition-property: all;
+				transition-duration: 3s;
+				transition-timing-function: ease-in;
+				transition-delay: 2s;
+			}
+			.sample02 {
+				transition: all 3s ease-in 2s;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>transition 속성</h1>
+		<div id="exsample">
+			<div class="transition_div sample01">
+				개별속성으로 지정
+			</div>
+			<div class="transition_div sample02">
+				단축 속성으로 지정
+			</div>
+		</div>
+		<a href="#exsample">Click</a>
+	</body>
+</html>

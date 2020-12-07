@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+<title>함수</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style type="text/css">
+#here {
+	border: 5px dotted gray;
+	/* height: 400px; */
+	padding: 10px;
+	margin: 10px;
+	overflow: auto;
+}
+</style>
+<script src="underscore-min.js"></script>
+</head>
+<body>
+
+	<div class="container">
+		<h2>배열연습</h2>
+		<button id="btn1" type="button" class="btn btn-success">배열/Push</button>
+		<button id="btn2" type="button" class="btn btn-success">option 객체</button>
+		<button id="btn3" type="button" class="btn btn-success">JSON 연습</button>
+		<hr>
+		<button id="btn4" type="button" class="btn btn-success">얕은복사</button>
+		<button id="btn5" type="button" class="btn btn-success">전개연산자[...arr]</button>
+		<button id="btn6" type="button" class="btn btn-success">underscore.js(_.clone(arr))</button>
+		<hr>
+		<button id="btn7" type="button" class="btn btn-success">_.map</button>
+		<button id="btn8" type="button" class="btn btn-success">깊은복사(_.map(oriArr, _.clone))</button>
+		<hr>
+		<button id="btn9" type="button" class="btn btn-success">생성자함수</button>
+		<button id="btn10" type="button" class="btn btn-success">캡슐화</button>
+	</div>
+	<hr>
+	<div id="here">
+		요기<br>
+	</div>
+	<script>
+		btn10.onclick = function() {
+			var st = new Student("김지현", 100, 90, 80, 70);
+			here.innerHTML = st.getName();
+		}
+		
+		function Student(name1, kor, eng, math, science){
+			var name = name1;
+			this.kor = kor;
+			this.eng = eng;
+			this.math = math;
+			this.science = science;
+			this.getName = function(){return name+"님";};
+		}
+		
+		Student.prototype.getSum = function (){return this.kor+this.eng+this.math+this.science;};
+		Student.prototype.getAve = function (){return this.getSum()/4;};
+		Student.prototype.toString = function(){return JSON.stringify(this);};
+		
+		btn9.onclick = function() {
+			var students = [];
+			
+			
+			students.push(new Student("홍길동", 100, 90, 80, 70));
+			students.push(new Student("고길동", 12, 54, 87, 65));
+			students.push(new Student("이길동", 78, 65, 78, 21));
+			students.push(new Student("김길동", 35, 75, 95, 15));
+			students.push(new Student("박길동", 98, 65, 75, 100));
+
+			_.each(students, function(val) { //each : collection 갯수만큼 loop돌기
+				here.innerHTML += val.name+" --> "+val.getSum()+"점(합계) / "+val.getAve()+"점(평균)<br>";
+				here.innerHTML += val+"<br>";
+			})
+			
+			/* here.innerHTML += "<hr>";
+			for (let i in students) {
+				here.innerHTML += JSON.stringify(students[i])+"<br>";
+			} */
+		}
+		
+		btn8.onclick = function() {
+			var oriArr = [1,2,3,4,[100,200,300,400]];
+			var newArr = _.map(oriArr, _.clone)	//oriArr의 요소 하나씩 빼서 _.clone함수를 수행한다
+			oriArr[4][0] = 999;
+			here.innerHTML = "oriArr : "+oriArr+"<br>"
+			here.innerHTML += "newArr : "+newArr+"<br>"
+		}
+		
+		btn7.onclick = function() {
+			_.map([1, 2, 3], function(num){ here.innerHTML+= (num * 3)+"<br>"; });
+			_.map({one: 1, two: 2, three: 3}, function(num, key){ here.innerHTML+= (num * 3)+"<br>"; });
+			_.map([[1, 2], [3, 4]], _.first);
+		}
+		
+		btn6.onclick = function() {
+			var oriArr = [1,2,3,4];
+			var newArr = _.clone(oriArr);
+			oriArr[0] = 999;
+			here.innerHTML = "oriArr : "+oriArr+"<br>"
+			here.innerHTML += "newArr : "+newArr+"<br>"
+		}
+		
+		btn5.onclick = function() {
+			var oriArr = [1,2,3,4];
+			var newArr = [...oriArr];
+			oriArr[0] = 99;
+			here.innerHTML = "oriArr : "+oriArr+"<br>"
+			here.innerHTML += "newArr : "+newArr+"<br>"
+		}
+		
+		btn4.onclick = function() {
+			var oriVal = 10;
+			var newVal = oriVal;
+			oriVal = 20;
+			here.innerHTML = "oriVal : "+oriVal+"<br>"
+			here.innerHTML += "newVal : "+newVal+"<br>"
+			
+			var oriArr = [1,2,3,4];
+			var newArr = oriArr;
+			oriArr[0] = 99;
+			here.innerHTML += "oriArr : "+oriArr+"<br>"
+			here.innerHTML += "newArr : "+newArr+"<br>"
+		}
+		
+		btn3.onclick = function() {
+			var stu = {	"name": "윤인성","kor": 87,"math": 98,"eng": 88,"science": 95};
+			here.innerHTML = stu.name+"<br>"
+							+JSON.stringify(stu);
+			var str = JSON.stringify(stu);
+			//alert(str.name); //err
+			var obj = JSON.parse(str);
+			alert(obj.name);
+		}
+		
+		btn2.onclick = function() {
+			var obj = test({ name : "윤인성",kor : 87, math:98, eng:88, science:95 });
+			here.innerHTML = JSON.stringify(obj);
+		}
+		function test(person){
+			var newObj = {}; 
+			newObj.name = person.name || "기본값";
+			newObj.kor = person.kor || 0;
+			newObj.eng = person.eng2 || 0;
+			return newObj;
+		}
+		
+		btn1.onclick = function() {
+			var students = [];
+			students.push({ name : "윤인성",kor : 87, math:98, eng:88, science:95 });
+			students.push({ name : "연하진",kor : 92, math:98, eng:96, science:98 });
+			students.push({ name : "구지연",kor : 76, math:96, eng:94, science:90 });
+			students.push({ name : "나선주",kor : 98, math:92, eng:96, science:92 });
+			students.push({ name : "윤아린",kor : 95, math:98, eng:98, science:98 });
+			students.push({ name : "윤명월",kor : 64, math:88, eng:92, science:92 });
+			students.push({ name : "김미화",kor : 82, math:86, eng:98, science:88 });
+			students.push({ name : "김연화",kor : 88, math:74, eng:78, science:92 });
+			students.push({ name : "박아현",kor : 97, math:92, eng:88, science:95 });
+			students.push({ name : "서준서",kor : 45, math:52, eng:72, science:78 });
+			
+			for (var i = 0; i < students.length; i++) {
+				students[i].getSum = function(){return this.kor+this.eng+this.math+this.science;};
+				students[i].getAve = function(){return this.getSum()/4;};
+			}
+			for (var i = 0; i < students.length; i++) {
+				here.innerHTML+="<br>"+students[i].name+"<br>합계 --> "+students[i].getSum()+"점";
+				here.innerHTML+="<br>평균 --> "+students[i].getAve()+"점";
+			}
+		}
+	</script>
+</body>
+</html>

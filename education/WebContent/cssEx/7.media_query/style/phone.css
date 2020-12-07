@@ -1,0 +1,10 @@
+@charset "UTF-8";
+@media screen and (min-width: 981px) {
+	/* 최소 너비가 981px 이상일 때 */
+	div {
+		border: #F00 solid 10px;
+		color: #054D4A;
+		font-family: "Times New Roman", Times, serif;
+		background: url(../images/pc.png) no-repeat 95% 95%;
+	}
+}

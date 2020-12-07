@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+<title>함수</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style>
+button {
+	background-color: yellow !important;
+	border: 2px solid orange !important;
+	color: navy !important;
+}
+</style>
+
+<script>
+	window.onload = call;
+	function call() {
+		var bs = document.getElementsByTagName("button");
+		for (let i = 0; i < bs.length; i++) {
+			bs[i].onclick = function() {
+				here.innerHTML += "<br><h2>함수" + (i + 1) + "</h2>";
+			}
+		}
+	}
+</script>
+
+</head>
+<body>
+
+	<div class="container">
+		<h2>함수연습</h2>
+		<button id="btn1" type="button" class="btn btn-success">함수1</button>
+		<button id="btn2" type="button" class="btn btn-success">함수2</button>
+		<button id="btn3" type="button" class="btn btn-success">함수3</button>
+	</div>
+	<hr>
+	<div id="here">
+		요기<br>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>animation</title>
+		<style>
+		@-webkit-keyframes ani01{
+			from{
+				-webkit-transform:scale(0) rotate(0deg);
+			}				
+			to{
+				-webkit-transform:scale(1.0,1.0) rotate(360deg);	
+			}
+		}
+		@keyframes ani01{
+			from{
+				transform:scale(0) rotate(0deg);
+			}				
+			to{
+				transform:scale(1.0,1.0) rotate(360deg);	
+			}
+		}
+		.animation_div{
+			position:absolute;
+			text-align:center;
+		}
+		.sample01{
+			left:50px;
+		}		
+		.sample02{
+			left:400px;
+		}		
+		.animation_div img{
+			-webkit-animation-name:ani01;
+			-webkit-animation-duration:2.5s;
+			animation-name:ani01;
+			animation-duration:2.5s;
+		}		
+		.sample01 img{
+			-webkit-animation-name:ani01;
+			-webkit-animation-duration:2.5s;
+			-webkit-animation-timing-function:ease-out;
+			-webkit-animation-delay:2s;
+			-webkit-animation-iteration-count:infinite;
+			-webkit-animation-direction:alternate-reverse;
+			animation-name:ani01;
+			animation-duration:2.5s;
+			animation-timing-function:ease-out;
+			animation-delay:2s;
+			animation-iteration-count:infinite;
+			animation-direction:alternate-reverse;
+		}
+		.sample02 img{
+			-webkit-animation:ani01 2.5s ease-out 2s infinite alternate-reverse;
+		}	
+	</style>
+	</head>
+	
+	<body>
+		<h1>animation 속성</h1>
+	     <div class="animation_div sample01">
+	     	<img src="images/sun.png" alt="animation test image">
+	        <p>개별 속성으로 지정</p>
+	     </div>
+	     <div class="animation_div sample02">
+	     	<img src="images/sun.png" alt="animation test image">
+	     	<p>단축 속성으로 지정</p>
+	     </div>
+	</body>
+</html>

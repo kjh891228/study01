@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+	
+	/* 1. class 속성이 있는지 */
+	[class] { color: red; }
+	
+	/* 2. type=text */
+	input[type='text'] { background-color: orange; }
+	
+	/* 3. 조건이 여러개 */
+	input[type='text'][value='aaa'] { background-color: yellow; }
+	
+	/* 4. ~로 시작 */
+	input[class^='first'] { font-weight: bold; }
+	
+	/* 5. ~로 끝 */
+	input[class$='first'] { border: 3px solid black; }
+	
+	/* 6. 포함 */
+	input[class*='first'] { font-family: Comic sans MS; }
+
+	/* 7. 단어로 포함 */
+	input[class~='first'] { font-size: 30px; }
+
+	/* 8. 같거나 '-'로 구분시작 */
+	input[class|='first'] { text-decoration: underline; }
+
+</style>
+
+</head>
+<body>
+
+<input type="text" class="first" value="first"><br>
+<input type="text" class="first-second" value="first-second"><br>
+<input type="text" class="aa-first" value="aa-first"><br>
+<input type="text" class="first aa bb" value="first aa bb"><br>
+<input type="text" class="aa bb first" value="aa bb first"><br>
+<input type="button" value="button"><br>
+
+<p class="first">selector test</p>
+<p>selector test</p>
+
+</body>
+</html>

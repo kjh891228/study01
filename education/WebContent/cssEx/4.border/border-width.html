@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>border-width</title>
+		<style>
+			div {
+				width: 150px;
+				height: 100px;
+				font-weight: bold;
+				padding: 20px;
+				margin: 20px 5px;
+				float: left;
+				position: relative;
+				border-style:solid;
+				border-color : #1E5799 ;
+			}
+			span {
+				position: absolute;
+				top: -40px;
+				left: -5px;
+				white-space: nowrap;
+			}
+			.box01 {
+				border-width : 1px ;
+			}
+			.box02 {
+				border-width : 5px ;
+			}
+			.box03 {
+				border-width : 10px ;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>border-width 속성</h1>
+		<div class="box01">
+			<span>border-width : 1px</span>
+		</div>
+		<div class="box02">
+			<span>border-width : 5px</span>
+		</div>
+		<div class="box03">
+			<span>border-width : 10px</span>
+		</div>
+	</body>
+</html>

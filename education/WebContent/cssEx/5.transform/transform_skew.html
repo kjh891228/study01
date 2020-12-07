@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>transform : skew()</title>
+		<style>
+			div {
+				position: absolute;
+				top: 100px;
+				left: 60px;
+				width: 150px;
+				height: 100px;
+				padding: 10px;
+				font-weight:bold;
+				color:#fff;
+			}
+			.origin_div {
+				border: #000000 dashed 2px;
+				background:#054D4A;
+			}
+			.origin_div p {
+				font-size: 16px;
+				font-weight: bold;
+				text-align: center;
+				position:relative;
+				top:50px;
+				}
+			span{
+				white-space: nowrap;
+			}
+			.transform_div {
+				border: #FF0000 solid 2px;
+				background: rgba(255,100,0,0.6);
+				-webkit-transform: skew(15deg, 15deg);
+				transform: skew(15deg, 15deg);
+			}
+			.transform_div p{
+				width:350px;
+			}
+		</style>
+	</head>
+	<body>
+	
+		<div class="origin_div">
+			<p>
+				요소 박스
+			</p>
+		</div>
+		<div class="transform_div">
+			<p>
+				transform
+				<br />
+				<span>skew(15deg, 15deg)</span>
+			</p>
+		</div>
+	</body>
+</html>
+

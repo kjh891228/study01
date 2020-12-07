@@ -1,0 +1,15 @@
+package com.hansung.model;
+
+import java.sql.Date;
+
+public class EmpVO {
+	
+	private int employee_id;
+	private String first_name, last_name, email, phone_number;
+	private Date hire_date;
+	private String job_id
+	private double salary, commission_pct;
+	private String manager_id, department_id;
+	
+	
+}

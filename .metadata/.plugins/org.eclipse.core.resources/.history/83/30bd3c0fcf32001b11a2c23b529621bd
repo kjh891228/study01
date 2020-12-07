@@ -1,0 +1,65 @@
+package com.hansung.model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.hansung.util.DBUtil;
+
+public class DeptDAO {
+	// select, insert, delete, update 작업
+
+	public int deptInsert(DeptVO dept) {
+		
+		return 0;
+	}
+	
+	public List<DeptVO> selectAll() {
+		List<DeptVO> deptlist = new ArrayList<DeptVO>(); // 용량가변리스트준비
+		Connection conn = DBUtil.getConnection(); // conn생성
+		Statement st = null; // 통로생성
+		String sql = "select * from departments"; // sql문생성
+		ResultSet rs = null;
+
+		try {
+			st = conn.createStatement();
+			rs = st.executeQuery(sql);
+			while (rs.next()) {
+				DeptVO dept = new DeptVO(rs.getInt(1), rs.getString(2));
+				deptlist.add(dept);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.close(conn, st, rs);
+		}
+		return deptlist;
+	}
+
+	public List<DeptVO> selectByName(String dname) {
+		List<DeptVO> deptlist = new ArrayList<DeptVO>(); // 용량가변리스트준비
+		Connection conn = DBUtil.getConnection(); // conn생성
+		PreparedStatement st = null; // 통로생성
+		String sql = "select * from departments where department_name like ?"; // sql문생성
+		ResultSet rs = null;
+
+		try {
+			st = conn.prepareStatement(sql);	//like ? 문을 쓸때는 여기에 sql문을 넣고
+			st.setString(1, "%"+dname+"%");		//첫번째 물음표=dname
+			rs = st.executeQuery();				//re에 값받아오기
+			while (rs.next()) {
+				DeptVO dept = new DeptVO(rs.getInt(1), rs.getString(2));
+				deptlist.add(dept);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.close(conn, st, rs);
+		}
+		return deptlist;
+	}
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+	
+	function call1() {
+		alert("a = "+a);	// a = undefined
+		var a = 10;
+		alert("a = "+a);	// a = 10
+		
+		call2();			// 함수다
+							// (undefined 아님)
+	}
+	
+	function call2() {
+		alert("함수다");
+	}
+	
+</script>
+
+</head>
+<body>
+
+<h1>자바스크립트 변수와 함수</h1>
+<hr>
+<button id="btn1" onclick="call1();">인라인 자바스크립트(비추천)</button><br>
+<button id="btn2">getElementById("btn2").onclick = call1</button><br>
+<button id="btn3">myname</button><br>
+<button id="btn4">h.innerHTML = "동적으로 페이지를 수정합니다"</button><br>
+<button id="btn5">버튼5</button>
+<hr>
+<div id="here">여기에 출력합니다</div>
+
+<script>
+
+	var b = document.getElementById("btn2");
+	b.onclick = call1;		// 이벤트에 함수를 할당한다 (괄호X)
+							// 함수명에 (괄호)를 달면 지금 바로 실행되는거임
+	
+	var b = document.getElementById("btn3");
+	// javascript는 변수명을 여러번 사용해도 괜찮다
+	b.onclick = function() {	// 익명함수
+		var myname;
+		console.log(myname+"->"+typeof(myname));
+		myname=100;
+		console.log(myname+"->"+typeof(myname));
+		myname="홍길동";
+		console.log(myname+"->"+typeof(myname));
+		myname=10>20;
+		console.log(myname+"->"+typeof(myname));
+		myname=[10,20,30];
+		console.log(myname+"->"+typeof(myname));
+		myname={name:"홍", age:20};
+		console.log(myname+"->"+typeof(myname));
+		myname=function(){};
+		console.log(myname+"->"+typeof(myname));
+	}
+	
+	var b = document.getElementById("btn4");
+	b.onclick = function() {
+		var h = document.getElementById("here");
+		h.innerHTML = "<h1>동적으로 페이지를 수정합니다</h1>"
+	}
+	
+</script>
+
+</body>
+</html>

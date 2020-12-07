@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>top, right, bottom, left</title>
+		<style>
+			.box {
+				width: 300px;
+				border: #666 solid 3px;
+				padding: 10px;
+				height: 200px;
+				position: relative;
+			}
+			.box_inner {
+				width: 200px;
+				padding: 10px;
+				height: 100px;
+				border: #999 solid 1px;
+				background: #054D4A;
+				color: #fff;
+				position: absolute;
+				
+				/* 가운데정렬 	*/
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				margin: auto;
+			}	
+		</style>
+	</head>
+	<body>
+		<h1>top, right, bottom, left 속성</h1>
+		<div class="box">		
+			<div class="box_inner">
+				position 속성의 값을 absolute로 지정하고 top, right, bottom, left 속성의 값을 모두 0으로 지정하면 요소 박스가 가운데 배치됩니다.				
+			</div>
+		</div>
+	</body>
+</html>
+

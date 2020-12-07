@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>border-image-width</title>
+		<style>
+			div {
+				position: absolute;
+				padding: 10px;
+				width: 175px;
+				height: 110px;
+				font-weight: bold;
+				text-align: center;
+				border: #F00 solid 15px;
+				background-color: #CCCCCC;
+				background-clip: padding-box;
+				border-image-source: url(images/border_image.png);
+				border-image-slice: 30;
+				border-image-repeat: repeat;
+			}
+			.width01 {
+				top: 190px;
+				left: 10px;
+			}
+			.width02 {
+				top: 190px;
+				left: 310px;
+				padding-top: 25px;
+				border-image-width: 25px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>border-image-width 속성</h1>
+		<p>
+			원본이미지 : <img src="images/border_image.png" alt="border-image test용 이미지"></p>
+			<div class="width01">
+				border-width:15px;
+				<br>
+				border-image-width
+				<br>
+				미지정 시
+			</div>
+			<div class="width02">
+				border-width:15px;
+				<br>
+				border-image-width:25px
+			</div>
+	</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+<title>DOM</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style type="text/css">
+#here {
+	border: 5px dotted gray;
+	padding: 10px;
+	margin: 10px;
+	overflow: auto;
+}
+
+.active {
+	border: 1px red solid;
+}
+</style>
+<script src="../day13/external.js"></script>
+<script src="../day13/underscore-min.js"></script>
+</head>
+<body>
+
+	<div class="container">
+		<h2>DOM(Document Object Model)</h2>
+		<button id="btn1" type="button" class="my">text없는객체생성</button>
+		<button id="btn2" type="button" class="my">innerHTML</button>
+		<hr> 
+		<input type="checkbox" value="사과" name="fruit"checked="checked">사과 
+		<input type="checkbox" value="바나나"	name="fruit">바나나 
+		<input type="checkbox" value="귤" name="fruit" checked="checked">귤 
+		<input type="checkbox" value="멜론" name="fruit">멜론 
+		<input type="checkbox" value="수박" name="fruit" checked="checked">수박
+		<button id="btn3" type="button" class="btn btn-success">querySelectorAll1</button>
+		<button id="btn4" type="button" class="btn btn-success">querySelectorAll2</button>
+		<hr>
+		<fieldset> 
+			<legend>SELECT GENDER</legend>
+			<input type="radio" name="gender" value="MAN">MAN 
+			<input type="radio" name="gender" value="WOMAN">WOMAN 
+			<input type="radio" name="gender" value="MAN2">MAN2 
+			<input type="radio" name="gender" value="WOMAN2" checked="checked">WOMAN2
+		</fieldset> 
+		<button id="btn5" type="button" class="btn btn-success">querySelectorAll3</button>
+		<hr>
+		<button id="btn6" type="button" class="btn btn-success">style changer</button>
+		<button id="btn7" type="button" class="btn btn-success">객체 제거</button>
+	</div>
+	<hr>
+	<div id="here">
+		<img src="" alt="">
+	</div>
+	<script>
+		btn7.onclick = function() {
+			var h = document.querySelector("#here");
+			//document.body.removeChild(h);
+			h.parentNode.removeChild(h);
+		}
+		
+		btn6.onclick = function() {
+			document.body.style.backgroundColor = "orange";
+			document.getElementById("here").style.backgroundColor = "white";
+			
+			document.querySelectorAll("button[class='my']").forEach(function(ele){
+				ele.style.backgroundColor = "black";
+				ele.style.borderColor = "black";
+				ele.style.color = "yellow";
+				ele.style.padding = "20px";
+			});
+		}
+		
+		btn5.onclick = function() {
+			var gender = document.querySelector("input[name='gender']:checked");
+			here.innerHTML += gender.value + "<br>";
+		}
+		
+		btn4.onclick = function() {
+			//var fruit = document.getElementsByName("fruit");
+			var fruit = document.querySelectorAll("input[name='fruit']:checked");
+			fruit.forEach(function(ele) {
+				here.innerHTML += ele.value + "<br>";
+			});
+		}
+		
+		btn3.onclick = function() {
+			//var fruit = document.getElementsByName("fruit");
+			var fruit = document.querySelectorAll("input[name='fruit']");
+			fruit.forEach(function(ele) {
+				if (ele.checked) {
+					here.innerHTML += ele.value + "<br>";
+				}
+			});
+		}
+
+		btn2.onclick = function() {
+			var h = document.querySelector("#here");
+			var str = "";
+			for (let i = 1; i < 11; i++) {
+				str += `<img src='LAB(JS)/images/img${i}.jpg' class='active'>`;
+			}
+			h.innerHTML = str;
+		}
+
+		function propChange(obj, prop, val) {
+			obj.setAttribute(prop, val);
+			return obj;
+		}
+		btn1.onclick = function() {
+			var h = document.querySelector("#here");
+			var ts = [ "공부중", "부채질중", "목욕중", "달력보는중", "산책중", "걷는중", "파리잡는중",
+					"나무보는중", "집에가는중", "인사하는중" ];
+			for (let i = 1; i < 11; i++) {
+				var img = document.createElement("img");
+				//img.src = "LAB(JS)/images/img" + i + ".jpg";
+				//img.setAttribute("src","LAB(JS)/images/img" + i + ".jpg");
+				propChange(img, "src", `LAB(JS)/images/img${i}.jpg`);
+				//img.alt = "이미지" + i;
+				propChange(img, "alt", `이미지${i}`);
+				//img.title = ts[i - 1];
+				propChange(img, "title", ts[i - 1]);
+				img.setAttribute("class", "active")
+				h.appendChild(img);
+			}
+			/* var h = document.getElementById("here");
+			var img = document.createElement("img"); //<img></img> 생성
+			img.src = "LAB(JS)/images/img1.jpg";
+			img.alt = "이미지1";
+			img.title = "공부중";
+			h.appendChild(img); */
+		}
+	</script>
+</body>
+</html>

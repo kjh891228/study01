@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+<title>함수</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style>
+button {
+	background-color: yellow !important;
+	border: 2px solid orange !important;
+	color: navy !important;
+}
+</style>
+
+<script>
+	window.onload = call;
+	function call() {
+		btn1.onclick = method1;
+		btn2.onclick = method2;
+		btn3.onclick = method3;
+		btn4.onclick = method4;
+		btn5.onclick = method5;
+		btn6.onclick = method6;
+		btn7.onclick = method7;
+		btn8.onclick = method8;
+	}
+
+	function method1() {
+		var a = function() {
+			here.innerHTML += "<br>callback연습";
+		};
+		f(a);
+	}
+	function f(param) {
+		here.innerHTML = param; //함수내용
+		param(); //함수실행
+	}
+
+	function method2() {
+		var a = f2();
+		here.innerHTML = a;
+		a(); //return받은 함수를 실행
+	}
+	function f2() {
+		return function() {
+			var score = 100;
+			here.innerHTML += "<br>" + score + " 점";
+		};
+	}
+
+	function method3() {
+		var a = f3();
+		a(); //지역변수를 담은 메소드를 받음 
+		//(클로져 : 지역변수가 사라지지않고 사용가능)
+		//alert(msg);	//불가능
+	}
+	function f3() {
+		var msg = "지역변수";
+		return function() {
+			here.innerHTML = msg + " 는 함수가 끝나면 사라짐";
+		};
+	}
+
+	function method4() {
+		var a = f4();
+		here.innerHTML = a();
+		here.innerHTML += "<br>" + a();
+		here.innerHTML += "<br>" + a();
+		here.innerHTML += "<br>" + a();
+		here.innerHTML += "<br>" + a();
+		here.innerHTML += "<br>" + a();
+	}
+	function f4() {
+		var cnt = 0;
+		return function() {
+			cnt++;
+			return cnt;
+		};
+	}
+
+	var a = f5();
+	function method5() {
+		here.innerHTML = a();
+	}
+	function f5() {
+		var cnt = 0;
+		return function() {
+			cnt++;
+			return cnt;
+		};
+	}
+
+	function method6() {
+		var cnt = Number(here.innerHTML);
+		if (isNaN(cnt)) {
+			cnt = 0;
+		}
+		cnt++;
+		here.innerHTML = cnt;
+	}
+
+	var a = f7(1);
+	var b = f7(100);
+	function method7() {
+		here.innerHTML = a();
+	}
+	function method8() {
+		here.innerHTML = b();
+	}
+	function f7(a){
+		return function(){
+			a++;
+			return a;
+		};
+	}
+</script>
+
+</head>
+<body>
+
+	<div class="container">
+		<h2>함수연습</h2>
+		<button id="btn1" type="button" class="btn btn-success">callback함수1</button>
+		<button id="btn2" type="button" class="btn btn-success">callback함수2</button>
+		<button id="btn3" type="button" class="btn btn-success">클로져1</button>
+		<button id="btn4" type="button" class="btn btn-success">함수return</button>
+		<button id="btn5" type="button" class="btn btn-success">클로져3</button>
+		<button id="btn6" type="button" class="btn btn-success">클로져4</button>
+		<button id="btn7" type="button" class="btn btn-success">클로져3-3</button>
+		<button id="btn8" type="button" class="btn btn-success">클로져3-4</button>
+	</div>
+	<hr>
+	<div id="here">
+		요기<br>
+	</div>
+
+</body>
+</html>

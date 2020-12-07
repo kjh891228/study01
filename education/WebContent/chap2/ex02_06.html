@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>속성 선택자</title>
+<style>
+	/* 속성이름이 존재하는지? */
+ 	a[target]{background-color: yellow;}
+	
+	/* 속성값이 일치하는지? */
+ 	a[target=_blank] { color: green; }
+ 	  
+	/* 조건이 하나 이상이면[조건1][조건2] */
+ 	a[target=_blank][class='aa'] { border: 1px solid red; }
+ 	
+ 	/* ^ : 캐럿 */
+ 	/* ~로 시작하는가? */
+	div[class^='first'] { color: red; } 
+	
+ 	/* ~를 포함하는가? */
+	[class*='first'] { background-color: orange; } 
+ 	
+ 	/* ~로 끝나는가? */
+	[class$='first'] { border: 3px dotted green; } 
+
+ 	/* 같거나 시작하는가? */
+	[class |='first'] { font-weight: bold; } 
+
+ 	/* (틸드)포함 하는가? : 단어로 인식 */
+	[class ~='first'] { font-size: 5px; } 
+	
+	input[type=text] { width: 100px; margin-bottom: 10px; 
+						background-color: #D5D5D5; } 
+	
+	input[type=button] { color:white; font-weight:bold; 
+						background-color: #000; }
+
+</style>
+</head>
+<body>
+	<div class="first-test aaaaaaaa first bbbbbbbbb">[로그인 화면]</div> 
+	<div class="first-test">[로그인 화면]</div> 
+	<div class="a-first-test">[로그인 화면]</div> 
+	<div class='first-test'>[로그인 화면]</div> 
+	
+	<p class='first-test'>[로그인 화면]</p>
+	 
+	<p class='first'>[로그인 화면]</p> 
+	<p class='test-first'>[로그인 화면]</p> 
+	<div class="second-test">아이디와 비밀번호를 입력하시오</div><br>
+	<form name="input" action="" method="get"> 
+		아이디<input type="text" name="id" size="20"> 
+		비밀번호<input type="text" name="pw" size="20"> 
+		<input type="button" value="로그인"> 
+		<a href="register.html" target="_blank">회원가입1</a> 
+		<a href="register.html">회원가입2</a> 
+		<a href="register.html" target="_blank" class="aa">회원가입3</a> 
+	</form>
+</body>
+</html>

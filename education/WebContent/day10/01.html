@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function call1(){
+	var q = prompt("숫자입력", "");
+	var res = "0";
+	if (q>0) {
+		res="양수";
+	} else if(q<0){
+		res="음수";
+	}
+	here.innerHTML=res;
+}
+function call2(){
+	while (true) {
+		var q = prompt("숫자입력", "");
+		q %= 2;
+		if (isNaN(q) == false) { break; };
+	}
+	here.innerHTML = (q%2==0)?"<h1>짝수</h1>":"<h1>홀수</h1>";	
+}
+function call3(){
+	var q = prompt("국,영,수 점수?","");
+	var score = q.split(/[,| ]+/);	// 쉼표 혹은 공백으로 구분
+	
+	var total=0;
+	for (let i = 0; i < score.length; i++) {
+		total += Number(score[i]);
+	}
+	
+	here.innerHTML = call5(total);
+}
+function call5(total){
+	var res = total/3;
+	var str="<h1>"+res.toFixed(2)+"점 / "+Math.round(res)+"점 / ";
+ 	if (res>=90) {
+		str+="'수'";
+	} else if(res>=80){
+		str+="'우'";
+	} else if(res>=70){
+		str+="'미'";	
+	} else if(res>=60){
+		str+="'양'";
+	} else {
+		str+="'가'";
+	} 
+	return str+"1</h1>";
+}
+function call5(total){
+	var res = total/3;
+	var str="<h1>"+res.toFixed(2)+"점 / "+Math.round(res)+"점 / ";
+	res = Math.floor(res/10);
+ 	switch (res) {
+ 	case 10: case 9: str+="수";	break;
+	case 8:	str+="우";	break;
+	case 7:	str+="미";	break;
+	case 6:	str+="양";	break;
+	default:	str+="가";	break;
+	} 
+	return str+"2</h1>";
+}
+function call5(total){
+	var res = total/3;
+	var grade = ["수","수","우","미","양","가"];
+	var i = 10-Math.floor(res/10);
+	return "<h1>" + Math.round(res)+"점 / "+grade[i]+"3</h1>";
+}
+
+//배열 : 하나의 이름으로 같은 타입의 데이터 여러개를 저장하기 위한 자료구조
+//		java : 같은타입의 데이터만
+//		javascript : 같은타입의 데이터가 아니어도 된다
+//					(java의 Collection처럼)
+function arrTest1(){
+	var arr = [100, "자바스크립트", true, 
+			{name:"홍길동", age:20},
+			function(){alert("나는 함수입니다");}, [1,2,3,4,5]];
+	here.innerHTML = "";
+	for (var i = 0; i < arr.length; i++) {
+		here.innerHTML += "<br>"+arr[i]+" --> "+typeof(arr[i]);
+		if (typeof(arr[i])=="function") {
+			arr[i]();	// (괄호)를 넣으면 지금 실행됨
+		}
+	}
+}
+function forTest(){
+	//1~10까지 출력한다
+	here.innerHTML = "<h1>forTest 시작</h1>";
+	for (let i = 1; i <= 10; i++) {
+		here.innerHTML += "<h2>"+i+"</h2>"; 	
+	}
+	here.innerHTML += "<h1>끝</h1>";	
+}
+function whileTest(){
+	here.innerHTML = "<h1>whileTest 시작</h1>";
+	var i=1;
+	while (i<=10) {
+		here.innerHTML += "<h2>"+i+"</h2>"; 
+		i++;
+	}
+	here.innerHTML += "<h1>끝</h1>";		
+}
+function doWhileTest(){
+	here.innerHTML = "<h1>doWhileTest 시작</h1>";
+	var i=1;
+	do {
+		here.innerHTML += "<h2>"+i+"</h2>"; 	
+		i++;
+	} while (i<=10) 
+	here.innerHTML += "<h1>끝</h1>";		
+}
+function forInTest(){
+	var arr = ["치킨", "삼겹살", "소갈비살", "마라탕"];
+	here.innerHTML  = "forInTest<br>";
+	for (var i in arr) {
+		here.innerHTML += arr[i];
+		if (arr[i]=="치킨") {
+			here.innerHTML +="♥<br>";
+			continue;
+		} else if(arr[i]=="마라탕"){
+			here.innerHTML +="♥♥<br>";
+			continue;			
+		}
+		here.innerHTML +="<br>";
+	}
+}
+function forOfTest(){
+	var arr = ["치킨", "삼겹살", "소갈비살", "마라탕"];
+	here.innerHTML  = "forOfTest<br>";
+	for (var food of arr) {
+		here.innerHTML += food;
+		if (food=="치킨") {
+			here.innerHTML +="♥<br>";
+			continue;
+		} else if(food=="마라탕"){
+			here.innerHTML +="★<br>";
+			continue;			
+		}
+		here.innerHTML +="<br>";
+	}
+}
+function star1(){
+	var res = "";
+	for (var i = 1; i < 10; i++) {
+		for (var o = 1; o <= i; o++) {
+			res+="★";
+		}
+		res+="<br>";
+	}
+	here.innerHTML=res;
+}
+function star2(){
+	var res = "";
+	for (var i=10, j=1; i > 0; i--,j++) {
+		for (var o = 1; o < i; o++) {
+			res+="*";
+		}
+		for (var h = 1; h <= j; h++) {
+			res+="★";
+		}
+		for (var o = 1; o < i; o++) {
+			res+="*";
+		}
+		res+="<br>"
+	}
+	here.innerHTML=res;
+}
+</script>
+</head>
+<body>
+	<h1>자바스크립트 조건문</h1>
+	<button onclick="call1();">양수?음수?0?</button>
+	<button onclick="call2();">홀수?짝수?</button>
+	<button onclick="call3();">국영수 평균 수우미양가</button>
+	<hr>
+	<button onclick="arrTest1();">배열</button>
+	<button onclick="forTest();">For문</button>
+	<button onclick="whileTest();">while문</button>
+	<button onclick="doWhileTest();">doWhile문</button>
+	<hr>
+	<button onclick="forInTest();">For in</button>
+	<button onclick="forOfTest();">For of</button>
+	<hr>
+	<button onclick="star1();">star1</button>
+	<button onclick="star2();">star2</button>
+	<hr>
+	<div id="here">here</div>
+</body>
+</html>

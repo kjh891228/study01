@@ -1,0 +1,10 @@
+@charset "UTF-8";
+@media screen and (max-width: 600px) {
+	/* 최대 너비가 600px 이상일 때 */
+	div {
+		border: #00F solid 10px;
+		color: #993333;
+		font-family: Verdana, Geneva, sans-serif;
+		background: url(../images/phone.png) no-repeat 95% 95%;
+	}
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript 연습</title>
+<style>
+	h1 { 
+		background-color: orange; 
+	}
+	li:hover {
+		background-color: orange;
+	}
+</style>
+
+<script>
+	function call() {
+		var h = document.getElementById("my").innerHTML;
+		
+		console.log("1. head안에서 작성된 console"+h)
+		alert("1. (추천) head안에서 작성된 alert"+h)
+	}
+</script>
+
+</head>
+<body>
+
+<script>
+	function call2() {
+		var h = document.getElementById("my").innerHTML;
+		
+		console.log("2. body맨위에서 작성된 console"+h)
+		alert("2. (비추천) body맨위에서 작성된 alert"+h)
+	}
+</script>
+
+	<h1 id="my">JavaScript 위치</h1>
+		<ol>
+			<li onclick="call();">head</li>
+			<li onclick="call2();">body 맨위</li>
+			<li>body 맨아래</li>
+		</ol>
+	<p>JavaScript가 먼저 실행되고나서 html이 보임</p>
+
+<script>
+	var h = document.getElementById("my").innerHTML;
+
+	console.log("3. body맨아래에서 작성된 console"+h)
+	alert("3. (추천) body맨아래에서 작성된 alert"+h)
+</script>
+
+</body>
+</html>

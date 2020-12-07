@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>[${dept.department_name}] 부서 상세보기</h1>
+	<form action="deptDetail" method="post">
+		부서코드<br>
+		<input type="text" disabled="disabled"
+			value="${dept.department_id}">
+		부서코드<br>
+		<input type="text" name="department_id" disabled="disabled"
+			value="${dept.department_id}">
+	</form>
+
+</body>
+</html>

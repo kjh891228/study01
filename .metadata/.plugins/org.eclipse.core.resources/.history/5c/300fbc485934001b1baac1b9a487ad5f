@@ -1,0 +1,8 @@
+package com.hansung.model;
+
+public class EmpVO {
+	
+	private int employee_id;
+	String first_name, last_name;
+	
+}

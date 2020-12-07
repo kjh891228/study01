@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>visibility</title>	
+		<style>
+			p {
+				border: #f00 solid 2px;
+			}
+			.hidden {
+				visibility: hidden;
+				/* 자리는 차지한다 */
+			}
+			.visible {
+				display: none;
+				/* 자리를 차지하지 않는다 */
+			}
+			.next{
+				background:#ffc;
+				border: #00f solid 2px;	
+			}
+		</style>
+	</head>
+	<body>
+		<h1>visibility 속성</h1>
+		<p class="hidden">
+			visibility:hidden
+		</p>
+		<p class="next">
+			visibility:hidden 다음 요소
+		</p>
+		<hr>
+		<p class="visible">
+			visibility:visible
+		</p>
+		<p> >0< </p>
+	</body>
+</html>

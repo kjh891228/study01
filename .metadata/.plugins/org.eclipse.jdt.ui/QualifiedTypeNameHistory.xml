@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.lang.Class"/>
+    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="com.hansung.model.DeptDAO"/>
+    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
+    <fullyQualifiedTypeName name="com.hansung.model.DeptVO"/>
+    <fullyQualifiedTypeName name="com.hansung.model.DeptService"/>
+    <fullyQualifiedTypeName name="com.hansung.util.DBUtil_maria"/>
+    <fullyQualifiedTypeName name="com.hansung.model.StudentsDAO"/>
+    <fullyQualifiedTypeName name="java.sql.Statement"/>
+    <fullyQualifiedTypeName name="com.hansung.model.StudentsVO"/>
+    <fullyQualifiedTypeName name="com.hansung.model.StudentService"/>
+    <fullyQualifiedTypeName name="com.hansung.model.JobsDAO"/>
+    <fullyQualifiedTypeName name="com.hansung.model.JobsService"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="com.hansung.controller.LoginServlet"/>
+    <fullyQualifiedTypeName name="com.hansung.model.LoginService"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="com.hansung.model.LoginDAO"/>
+    <fullyQualifiedTypeName name="javax.servlet.ServletContext"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="com.hansung.util.DBUtil"/>
+    <fullyQualifiedTypeName name="com.hansung.model.EmpDAO"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.hansung.model.EmpService"/>
+    <fullyQualifiedTypeName name="com.hansung.model.EmpVO"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="com.hansung.model.JobsVO"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="java.lang.Object"/>
+    <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<style type="text/css">
+		hr { border-color: orange; }
+	</style>
+
+</head>
+<body>
+<h1>입력양식 서버로 보내기</h1>
+	<form action="01.jsp" method="get">
+		<input type="text" name="myname" value="이름">
+		<input type="number" name="age">
+		<input type="submit" value="전송">
+	</form>
+	<a href="01.jsp?myname=이름&age=99">A태그는 GET방식</a>
+<hr>
+	<form action="01.jsp" method="post">
+		<input type="text" name="myname" value="이름">
+		<input type="number" name="age">
+		<input type="submit" value="전송">
+	</form>
+</body>
+</html>

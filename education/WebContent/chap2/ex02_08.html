@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	a:link{color:blue;}
+	a:visited{color:red;}
+	a:hover{color:green;}
+	a:active{color:yellow;}
+	
+	/* 어떤 영역안에서 다른 태그보다도 제일 먼저 나와야 한다 */
+	h1:first-child { background-color: green; }
+	
+	/* 영역안에서 다른 태그와 상관없이 특정 태그의 스타일을 바꿀때 */ 
+	h1:first-of-type { background-color: orange; }
+	
+	/* 영역별 자식으로서 2번째마다 적용 */
+	h1:nth-child(2) { 
+		border: 3px dotted red ; } 
+
+	/* 영역별 자식으로서 특정 타입마다 적용 */
+	h1:nth-of-type(2) { 
+		border: 3px dotted blue ; } 
+</style>
+</head>
+
+<body>
+	<p>h1 보다 위에 있는 p</p>
+	<h1>h1:first-child</h1>
+	<h1>h1 - 02</h1>
+	<h1>h1 - 03</h1>
+	<hr>
+	<div>
+		<div>div</div>
+		<h1>div - h1:first-child</h1>	
+		<h1>div - h1</h1>	
+		<h1>div - h1</h1>	
+	</div>
+	<hr>
+	<a href="https://www.namgarambooks.co.kr/" target="_parent">남가람북스</a>를 클릭하세요
+</body>
+</html>

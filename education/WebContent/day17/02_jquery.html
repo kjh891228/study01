@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+<script src="jquery-3.5.1.min.js"></script>
+<script>
+	//$(document).ready(function() {alert('1');}); //==window.onload = function(){}
+	//$(function() {alert('2');}); //위에랑 같은거임
+	$(function() {
+		$("#btn1").click(function() {
+			$("h1").css("background-color", "orange");
+			var obj = {
+				color : "white",
+				"border" : "1px solid orange",
+				"background-color" : "gray"
+			};
+			$("h1:nth-child(2n)").css(obj);
+		});
+
+		$("#btn2").click(function() {
+			$("*").css("font-size", "10px");
+		});
+
+		$("#btn3").click(function() {
+			$("button").css("background-color", "orange");
+		});
+
+		$("#btn4").click(function() {
+			$("h1.my").css("background-color", "navy");
+		});
+
+		$("#btn5").click(function() {
+			//$("input[type='text']").val("HELLO!!");
+			$("input:text").val("HELLO!!");
+		});
+
+		$("#btn6").click(function() {
+			setTimeout(function() {
+				var a = $("select>option:selected").val();
+				alert(a);
+			}, 1000);
+		});
+
+		$("#btn7").click(function() {
+			$("h1:even").css("background-color","green");
+			$("h1:odd").css("background-color","yellow");
+			$("h1:first").css("color","white");
+			$("h1:last").css("color","purple");
+			$("h1:nth-child(2n)").css("border","2px dotted gray");
+			$("button").eq(6).css("background-color","black");
+			$("h1:not(:contains('JQuery'))").css("font-family","궁서체");
+			$("h1:not(:last)").css("font-size","5px");
+		});
+	});
+</script>
+</head>
+<body>
+	<button id="btn1">h1에 CSS적용하기</button>
+	<button id="btn2">전체선택자</button>
+	<button id="btn3">특정태그선택자</button>
+	<button id="btn4">class선택자</button>
+	<hr>
+	<button id="btn5">속성선택자</button>
+	<input type="text">
+	<input type="text">
+	<input type="text">
+	<input type="number">
+	<hr>
+	<button id="btn6">입력양식 필터선택자</button>
+	<select>
+		<option selected="selected">금</option>
+		<option>토</option>
+		<option>일</option>
+	</select>
+	<hr>
+	<button id="btn7">필터선택자</button>
+	<hr>
+	<h1 class="my">Query 사용하기</h1>
+	<h1>query 사용하기</h1>
+	<h1>Juery 사용하기</h1>
+	<h1>juery 사용하기</h1>
+	<h1>jquery 사용하기</h1>
+	<h1>JQuery 사용하기</h1>
+	<h1 class="my">JQuery 사용하기</h1>
+	<h1>JQuery 사용하기</h1>
+	<h1>JQuery 사용하기</h1>
+	<h1>JQuery 사용하기</h1>
+	<h1>JQuery 사용하기</h1>
+	<h1>JQuery 사용하기</h1>
+	<h1>JQuery 사용하기</h1>
+	<h1>JQuery 사용하기</h1>
+	<h1>JQuery 사용하기</h1>
+	<h1>JQuery 사용하기</h1>
+	<h1 class="my">JQuery 사용하기</h1>
+	<h1>JQuery 사용하기</h1>
+	<h2 class="my">JQuery 사용하기</h2>
+	<h1>JQuery 사용하기</h1>
+	<h1>JQuery 사용하기</h1>
+	<h1>JQuery 사용하기</h1>
+	<h1>JQuery 사용하기</h1>
+	<h1>JQuery 사용하기</h1>
+	<h1>JQuery 사용하기</h1>
+	<h1>JQuery 사용하기</h1>
+	<h1>JQuery 사용하기</h1>
+</body>
+</html>

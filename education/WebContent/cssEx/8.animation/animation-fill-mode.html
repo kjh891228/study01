@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>animation-fill-mode</title>
+		<style>
+			@-webkit-keyframes ani01{
+				from{
+					-webkit-transform:rotate(0deg);
+					background:#054D4A;
+				}					
+				to{
+					-webkit-transform:rotate(360deg);
+					background:#6699FF;	
+				}
+			}
+			@keyframes ani01{
+				from{
+					transform:rotate(0deg);
+					background:#054D4A;
+				}					
+				to{
+					transform:rotate(360deg);
+					background:#6699FF;	
+				}
+			}
+			body {			
+				margin : 50px ;	
+			}
+			.box img{
+				margin-top : 50px ;	
+				-webkit-animation-name:ani01;
+				-webkit-animation-duration:3s;
+				-webkit-animation-timing-function:linear;
+				-webkit-animation-iteration-count:1;
+				-webkit-animation-delay:2s;
+				-webkit-animation-direction:normal ;
+				-webkit-animation-fill-mode:backwards ;
+				animation-name:ani01;
+				animation-duration:3s;
+				animation-timing-function:linear;
+				animation-iteration-count:1;
+				animation-delay:5s;
+				animation-direction:normal ;
+				animation-fill-mode:backwards ;	
+			}
+		</style>
+	</head>	
+	<body>
+		<h1>aanimation-fill-mode 속성</h1>
+	     <div class="box">
+	     	<img src="images/sun.png" alt="animation test image">	        
+	     </div>	
+	</body>
+</html>

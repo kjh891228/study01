@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+	label {
+			/* 	inline 요소 / width불가 / block요소 
+				양다리 : inline 요소인데 block요소의 특징을 사용한다. 
+				inlineblock										 */
+		width: 100px bold ;
+		background-color: orange ;
+		display: inline-block ;
+	}
+</style>
+
+<script type="text/javascript">
+
+	function call() {
+		//var myname = document.getElementById("myname")
+		//alert(myname.value);
+		var my = myname.value;
+		if (my == "") {
+			alert("이름을 입력하세요!!");
+			myname.focus();
+			return;
+		}
+		myform.submit();
+	}
+
+</script>
+
+</head>
+<body>
+	<form name="myform" action="formTest.jsp" enctype="application/x-www-form-urlencoded">
+	<fieldset>
+	<legend>기본사항</legend>
+		<label for="myname">이름 readonly</label><input type="text" size="10" maxlength="3" name="name" value="NAME" readonly id="myname" required="required"><br>
+		<label for="pass">비번1 disabled</label><input type="password" size="10" name="pass" value="password1" disabled><br>
+		<label for="pass2">비번2 hidden</label><input type="hidden" name="pass2" value="password2"><br>
+	</fieldset>
+	
+	<fieldset>
+	<legend>MEMO textarea</legend>
+		<textarea rows="10" cols="50" name="memo"></textarea>
+	</fieldset>
+	
+	<fieldset>
+	<legend>FRUIT1 radio</legend>
+		<input type="radio" name="fruit" mu value="リンゴ">사과
+		<input type="radio" name="fruit" value="ミカン">귤
+		<input type="radio" name="fruit" value="バナナ" checked>바나나
+		<input type="radio" name="fruit" value="スイカ">수박
+	</fieldset>
+	
+	<fieldset>
+	<legend>FRUIT2 select</legend>
+		<select name="fruit2">
+			<option value="リンゴ">사과</option>
+			<option value="ミカン" selected>귤</option>
+			<option value="バナナ">바나나</option>
+			<option value="スイカ">수박</option>
+		</select>
+	</fieldset>
+	
+	<fieldset>
+	<legend>FRUIT3 select-multiple</legend>
+		<select name="fruit3" multiple>
+			<option value="リンゴ" selected>사과</option>
+			<option value="ミカン" selected>귤</option>
+			<option value="バナナ">바나나</option>
+			<option value="スイカ" selected>수박</option>
+		</select>
+	</fieldset>
+	
+		<input type="submit" value="submit">
+		<input type="reset" value="reset">
+		<input type="button" value="button(JS코드)" onclick="call();">
+		<input type="file">
+	</form>
+</body>
+</html>

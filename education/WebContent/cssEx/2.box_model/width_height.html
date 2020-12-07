@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>width, height</title>	
+		<style>
+			.width p {
+				margin: 10px;
+				height: 70px;
+				padding: 20px;
+				border: #333 solid 2px;
+				background: #FFc;
+				text-align: center;
+			}
+			.width01 {
+				width: 200px;
+			}
+			.width02 {
+				box-sizing: border-box;
+				width: 200px;
+			}
+			.width03 {
+				width: 50%;	/* 전체 width의 50% (content-box 기준) */
+			}
+			.width04 {
+				box-sizing: border-box;
+				width: 50%;	/* 전체 width의 50% (border-box 기준) */
+			}
+			.height p {
+				position: absolute;
+				width: 200px;
+				padding: 5px 20px;
+				background: #FFC;
+				border: #00F solid 3px;
+			}
+			.height01 {
+				left: 320px;
+				height: 150px;
+			}
+			.height02 {
+				left: 630px;
+				box-sizing: border-box;
+				height: 150px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="width">
+			<h1>width 속성</h1>			
+			<p class="width01">
+				content-box 200px
+			</p>
+			<p class="width02">			
+					border-box 200px			
+			</p>
+			<p class="width03">
+					content-box 50%				
+			</p>
+			<p class="width04">
+					border-box 50%
+			</p>
+		</div>
+		<hr>
+		<div class="height">
+			<h1>height 속성</h1>
+			<p class="auto">
+				height - height는 요소의 높이 지정하는 속성이다. display속성이 “inline”인 요소에는 적용되지 않으며 height 속성의 적용되는 방식은 box-sizing 속성값에 따른다. 콘텐츠 높이가 지정된 값보다 커도 요소의 높이는 변경되지 않는다. 음수 값은 지정 할 수 없다.
+			</p>
+
+			<p class="height01">
+				height01 - height는 요소의 높이 지정하는 속성이다.
+			</p>
+			<p class="height02">
+				height02 - height는 요소의 높이 지정하는 속성이다. display속성이 “inline”인 요소에는 적용되지 않으며 height 속성의 적용되는 방식은 box-sizing 속성값에 따른다. 콘텐츠 높이가 지정된 값보다 커도 요소의 높이는 변경되지 않는다. 음수 값은 지정 할 수 없다.
+			</p>
+		</div>
+	</body>
+</html>
+

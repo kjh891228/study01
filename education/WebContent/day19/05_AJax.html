@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AJax</title>
+<style type="text/css">
+#here{
+	border: 3px double gray;
+}
+</style>
+<script src="../day17/jquery-3.5.1.js"></script>
+<script>
+	$(function() {
+		$("button").eq(0).on("click", function() {
+			$.get("03_fadeInOut.html", function(data) {
+				//다녀온 후에 할일
+				$("#here").html(data);
+			});
+		});
+
+		$("button").eq(1).on("click", function() {
+			$.get("ajaxTest.jsp?myname=kim&myage=999", function(responseText) {
+				$("#here").html(responseText);
+			});
+		});
+
+		$("button").eq(2).on(
+				"click",
+				function() {
+					$.post("ajaxTest.jsp", "myname=kim&myage=999", function(
+							responseText) {
+						$("#here").html(responseText);
+					});
+				});
+
+		$("button").eq(3).on("click", function() {
+			var param = {};
+			param.myname = $("#myname").val();
+			param.myage = $("#myage").val();
+			$.ajax({
+				url : "ajaxTest2.jsp",
+				type : "get",
+				data : param,
+				success : function(responseText) {
+					var obj = JSON.parse(responseText);
+					var str = "<table>";
+					$.each(obj, function(key, val) {
+						str += `<tr><th>${key}</th><td>${val}</td></tr>`;
+					})
+					str += "</table>";
+					$("#here").html(str);
+				}
+			});
+		});
+		$("#memberResist").on("click", function() {
+		/* 	var obj = {};
+			obj.id = $("#uId").val();
+			obj.name = $("#uName").val();
+			obj.pnum = $("#uPnum").val();
+			obj.email = $("#uEmail").val();
+			obj.addr = $("#uAddr").val(); */
+			
+			var obj = $("#myForm").serialize();
+			alert(obj);
+			console.log(obj);
+			
+			$.ajax({
+				url : "memberResist.jsp",
+				type : "get",
+				data : obj,
+				success : function(responseText) {
+					$("#here").html(responseText);
+				}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+	<button>GET_01</button>
+	<button>GET_02</button>
+	<button>POST</button>
+	<hr>
+	MY NAME :
+	<input type="text" id="myname"> 
+	MY AGE :
+	<input type="number" id="myage">
+	<button>Ajax method</button>
+	<hr>
+	<form name="myForm" id="myForm">
+		ID<br><input type="text" id="uId" name="uId" value="testID"><br>
+		NAME<br><input type="text" id="uName" name="uName" value="테스트"><br>
+		PHONE<br><input type="text"  id="pNum" name="uPnum" value="010-1234-5678"><br>
+		EMAIL<br><input type="text" id="uEmail" name="uEmail" value="testID@test.com"><br>
+		ADDR<br><input type="text" id="uAddr" name="uAddr" value="우주">
+		<input type="button" id="memberResist" value="회원등록">
+	</form>
+	<hr>
+	<div id="here"></div>
+</body>
+</html>

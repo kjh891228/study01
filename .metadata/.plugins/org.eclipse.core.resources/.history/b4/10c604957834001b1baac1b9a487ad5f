@@ -1,0 +1,46 @@
+package com.hansung.model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.hansung.util.DBUtil;
+
+public class EmpDAO {
+
+	public List<EmpVO> selectAll() {
+		List<EmpVO> empList = new ArrayList<EmpVO>();
+		Connection conn = DBUtil.getConnection();
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		String sql = "select * from employees";
+		
+		try {
+			st = conn.prepareStatement(sql);
+			rs = st.executeQuery();
+			while (rs.next()) {
+				EmpVO vo = new EmpVO(rs.getInt("employee_id"),
+							rs.getString("first_name"),
+							rs.getString("last_name"),
+							rs.getString("email"),
+							rs.getString("phone_number"),
+							rs.getDate("hire_date"),
+							rs.getString("job_id"),
+							rs.getDouble("salary"),
+							rs.getDouble("commission_pct"),
+							rs.getString("manager_id"),
+							rs.getString("department_id"));
+				empList.add(vo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.close(conn, st, rs);
+		}
+		return empList;
+	}
+	
+}

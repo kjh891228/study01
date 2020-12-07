@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>animation-name</title>
+		<style>
+			@-webkit-keyframes ani01{
+				from{
+					width:100px;
+					background:rgba(0,0,255,0.5);
+				}				
+				50%{
+					-webkit-transform:scale(1.2,1.2)
+				}				
+				to{
+					width:400px;
+					background:rgba(255,0,0,0.5);	
+				}
+			}
+			@keyframes ani01{
+				from{
+					width:100px;
+					background:rgba(0,0,255,0.5);
+				}				
+				50%{
+					transform:scale(1.2,1.2);
+				}				
+				to{
+					width:400px;
+					background:rgba(255,0,0,0.5);	
+				}
+			}			
+			@-webkit-keyframes ani02{
+				from{
+					background:rgba(255,0,0,0.5);	
+				}
+				
+				to{
+					background:rgba(0,0,255,0.5);
+					-webkit-transform:rotate(360deg);
+				}
+			}
+			@keyframes ani02{
+				from{
+					background:rgba(255,0,0,0.5);	
+				}
+				
+				to{
+					background:rgba(0,0,255,0.5);
+					transform:rotate(360deg);
+				}
+			}			
+			.animation_div{
+				margin:0 auto;
+				width:200px;
+				margin-bottom:20px;
+				height:50px;
+				border:#000000 dashed 2px;				
+				-webkit-animation-duration:2s;
+				animation-duration:2s;
+			}			
+			.sample01{				
+				-webkit-animation-name:ani01;
+				animation-name:ani01;
+			}
+			.sample02{				
+				-webkit-animation-name:ani02;
+				animation-name:ani02;
+			}
+			.sample03{				
+				-webkit-animation-name:ani01, ani02;
+				animation-name:ani01, ani02;
+			}		
+		</style>
+	</head>
+	
+	<body>
+		<h1>animtion-name 속성</h1>
+	     <div class="animation_div sample01">
+	     	@keyframes ani01을 실행
+	     </div>
+	     <div class="animation_div sample02">
+	     	@keyframes ani02을 실행
+	     </div>
+	     <div class="animation_div sample03">
+	     	@keyframes ani01과ㅓani02를 모두 실행
+	     </div>
+	</body>
+</html>

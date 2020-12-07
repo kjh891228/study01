@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+<title>Bootstrap Example</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script>
+	var a = function() {
+	};
+	window.onload = function() {
+		btn1.onclick = function() {
+			//함수호출 : 함수이름();
+			call();
+			call();
+			call();
+			here.innerHTML += "<br>" + call;
+		};
+		btn2.onclick = function() {
+			here.innerHTML = "익명함수는 이름이 없는 함수 <br> 호출불가능(재사용도 불가능)";
+			var f = function() {
+				here.innerHTML += "<br> 익명";
+			};
+			here.innerHTML += "<br>" + f;
+			f();
+		};
+		btn3.onclick = function() {
+			//호이스팅 : var, function선언 
+			call3(); //가능
+			//call4();	//에러
+			function call3() {
+			} //선언적 함수
+			var call4 = function() {
+			}; //변수안의 익명함수
+			call4(); //가능
+		};
+		btn4.onclick = function() {
+			//callback함수 : 코드를 넣고 실행은 내가 아니라 받은 쪽에서 한다(onclick = function(){};)
+			var bs = document.getElementsByTagName("button");
+			here.innerHTML = bs;
+			for (var i = 0; i < bs.length; i++) {
+				here.innerHTML += "<br><h2>" + bs[i].innerHTML + "</h2>";
+			}
+		};
+	};
+	//함수정의 : function 함수이름(){};
+	function call() {
+		here.innerHTML += "선언적 함수는 이름이 있는 함수 <br> 재사용이 목적이다";
+	};
+</script>
+
+</head>
+<body>
+
+	<div class="container">
+		<h2>Button Styles</h2>
+		<button id="btn1" type="button" class="btn">함수1</button>
+		<button id="btn2" type="button" class="btn btn-default">함수2</button>
+		<button id="btn3" type="button" class="btn btn-primary">함수3</button>
+		<button id="btn4" type="button" class="btn btn-success">함수4</button>
+		<button id="btn5" type="button" class="btn btn-info">함수5</button>
+		<button id="btn6" type="button" class="btn btn-warning">함수6</button>
+		<button id="btn7" type="button" class="btn btn-danger">함수7</button>
+		<button id="btn8" type="button" class="btn btn-link">함수8</button>
+	</div>
+	<hr>
+	<div id="here">요기</div>
+</body>
+</html>

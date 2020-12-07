@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>box-sizing</title>
+		<style>
+			div {
+				width: 200px;
+				padding: 20px;
+				border: 5px solid #000;
+				margin: 50px 0;
+				background: #054D4A;
+				color: #fff;
+				font-weight: bold;
+			}
+			.box1 {				
+				box-sizing: content-box;
+			}
+			.box2 {				
+				box-sizing: border-box;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>box-sizing</h1>
+
+		<div class="box1">
+			content-box
+		</div>
+		<div class="box2">
+			border-box
+		</div>
+	</body>
+</html>

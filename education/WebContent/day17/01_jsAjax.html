@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+ul li:nth-child(2n) {
+	background-color: lightgray;
+	list-style: square;
+}
+
+ul li:nth-child(2n+1) {
+	background-color: orange;
+}
+</style>
+<script>
+	var xhr;
+
+	//DOM level 0의 기본이벤트모델
+	window.onload = function() {
+		//DOM level 1의 표준이벤트모델
+		btn1.addEventListener("click", callAjax);
+		btn2.addEventListener("click", callAjax2);
+		btn3.addEventListener("click", test);
+	}
+
+	function test() {
+		var obj = {"data1":100, "data2":200, "data3":300, "data4":400, 
+				cars:{"car1":1000, "car2":2000}};
+		here.innerHTML = "";
+		for ( var prop in obj) {
+			here.innerHTML += prop+" : ";
+			here.innerHTML += obj[prop]+"<br>";
+		}
+		here.innerHTML += "<hr>";
+		for ( var prop in obj.cars) {
+			here.innerHTML += prop+" : ";
+			here.innerHTML += obj.cars[prop]+"<br>";
+		}
+		here.innerHTML += "<hr>";
+		
+		var obj = {
+				"status" : "0000",
+				"data" : {
+					"opening_price" : "504000",
+					"closing_price" : "505000",
+					"min_price" : "504000",
+					"max_price" : "516000",
+					"units_traded" : "14.71960286",
+					"acc_trade_value" : "16878100",
+					"prev_closing_price" : "503000",
+					"units_traded_24H" : "1471960286",
+					"acc_trade_value_24H" : "16878100",
+					"fluctate_24H" : "1000",
+					"fluctate_rate_24H" : 0.19,
+					"date" : "1417141032622"
+				}
+			}
+		for ( var prop in obj.data) {
+			here.innerHTML += prop+"<br> / ";			
+			here.innerHTML += obj.data[prop]+"<br>";			
+		}
+	}
+	
+	//명시적함수
+	function callAjax() {
+		xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = display;
+		xhr.open("get", "getNaver.jsp");
+		xhr.send(); //서버에 전송은 이때 이루어짐
+	}
+	
+	function callAjax2() {
+		xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = display2;
+		xhr.open("get", "https://api.bithumb.com/public/ticker/ALL");
+		xhr.send(); //서버에 전송은 이때 이루어짐
+	}
+
+	function display() {
+		//readystate속성값 : 
+		//	0(open전), 1(send전), 2(send후/data없음), 
+		//	3(data일부받음), 4(data모두받음)
+		if (xhr.readyState == 4 && xhr.status == 200) {
+			here.innerHTML = xhr.responseText;
+		}
+	}
+	
+	function display2() {
+		if (xhr.readyState == 4 && xhr.status == 200) {
+			var str = xhr.responseText;
+			var obj = JSON.parse(str);
+			var output =`<table border='1px'>
+						<tr>
+						<th>종목명</th>
+						<th>시작가</th>
+						<th>종가</th>
+						</tr>`;
+			console.log(obj);
+			for ( var prop in obj.data) {
+				if (prop == "date") {
+					today.innerHTML = new Date(Number(obj.data["date"]));
+					continue;
+				}
+				output +=`<tr>
+					<td>${prop}</td>
+					<td>${obj.data[prop]["opening_price"]}</td>
+					<td>${obj.data[prop]["closing_price"]}</td>
+					</tr>`;
+			}
+			//str -> obj로 변경 -> 모든 종목이 출력되도록 코드 추가하기
+			output += `</table>`;
+			here.innerHTML = output;
+		}
+	}
+</script>
+</head>
+<body>
+	<h1>JavaScript를 이용한 Ajax</h1>
+	<button id="btn1">NAVER NEWS</button>
+	<button id="btn2">비트코인</button>
+	<button id="btn3">object접근</button>
+	<hr>
+	<span id="today"></span>
+	<div id="here">요기</div>
+</body>
+</html>

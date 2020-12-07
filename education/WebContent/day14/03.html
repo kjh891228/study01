@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+<title>BOM</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style type="text/css">
+#here {
+	border: 5px dotted gray;
+	padding: 10px;
+	margin: 10px;
+	overflow: auto;
+}
+</style>
+<script src="../day13/external.js"></script>
+<script src="../day13/underscore-min.js"></script>
+</head>
+<body>
+
+	<div class="container">
+		<h2>BOM(Browser Object Model)</h2>
+		<button id="btn1" type="button" class="btn btn-success">window</button>
+		<button id="btn2" type="button" class="btn btn-success">document</button>
+		<button id="btn3" type="button" class="btn btn-success">location</button>
+		<button id="btn4" type="button" class="btn btn-success">history</button>
+		<button id="btn5" type="button" class="btn btn-success">navigator</button>
+		<button id="btn6" type="button" class="btn btn-success">screen</button>
+		<hr>
+		<a href="02.html">a tag href</a><br>
+		<button id="btn7" type="button" class="btn btn-success">location.href</button>
+	</div>
+	<hr>
+	<div id="here">
+		요기<br>
+	</div>
+	<script>
+		btn1.onclick = function() {
+			here.innerHTML = `<h2>prop in window</h2>`;
+			for ( var prop in window) {
+				here.innerHTML += `${prop} --> ${window[prop]}<br>`;
+			}
+		}
+		btn2.onclick = function() {
+			here.innerHTML = `<h2>prop in document</h2>`;
+			for ( var prop in document) {
+				here.innerHTML += `${prop} --> ${document[prop]}<br>`;
+			}
+		}
+		btn3.onclick = function() {
+			here.innerHTML = `<h2>prop in location</h2>`;
+			for ( var prop in location) {
+				here.innerHTML += `${prop} --> ${location[prop]}<br>`;
+			}
+		}
+		btn4.onclick = function() {
+			here.innerHTML = `<h2>prop in history</h2>`;
+			for ( var prop in history) {
+				here.innerHTML += `${prop} --> ${history[prop]}<br>`;
+			}
+		}
+		btn5.onclick = function() {
+			here.innerHTML = `<h2>prop in navigator</h2>`;
+			for ( var prop in navigator) {
+				here.innerHTML += `${prop} --> ${navigator[prop]}<br>`;
+			}
+		}
+		btn6.onclick = function() {
+			here.innerHTML = `<h2>prop in screen</h2>`;
+			for ( var prop in screen) {
+				here.innerHTML += `${prop} --> ${screen[prop]}<br>`;
+			}
+		}
+		btn7.onclick = function() {
+			location.href = "01.html";
+		}
+	</script>
+</body>
+</html>

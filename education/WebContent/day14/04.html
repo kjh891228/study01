@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+<title>DOM</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style type="text/css">
+#here {
+	border: 5px dotted gray;
+	padding: 10px;
+	margin: 10px;
+	overflow: auto;
+}
+</style>
+<script src="../day13/external.js"></script>
+<script src="../day13/underscore-min.js"></script>
+</head>
+<body>
+
+	<div class="container">
+		<h2>DOM(Document Object Model)</h2>
+		<button id="btn1" type="button" class="btn btn-success">동적Node생성</button>
+		<hr>
+	</div>
+	<hr>
+	<div id="here">
+		<ul></ul>
+		<p>여기에 요일 추가</p>
+	</div>
+	<script>
+		btn1.onclick = function() {
+			//var h = document.getElementById("here");
+			//var ul = h.getElementsByTagName("ul");	//배열
+			
+			var ul = document.querySelector("#here>ul"); //위의 방식보다 이게편함
+			
+			var arr = ["월","화","수","목","금","토","일"];
+			
+			for ( var week of arr) {
+				var newP = document.createElement("li"); //요소노드생성
+				var newT = document.createTextNode(week); //arr 요소 하나씩 텍스트노드로 생성
+				newP.appendChild(newT);	//생성한 요소노드에 요소를 넣음
+				ul.appendChild(newP);	//새로운 요소노드를 here에 넣음
+			}
+			
+			//var newT = document.createTextNode("새로운p입니다"); //새로운p입니다
+			//newP.appendChild(newT);	//<p>새로운p입니다</p>
+			
+		}
+	</script>
+</body>
+</html>

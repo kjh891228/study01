@@ -1,0 +1,35 @@
+<%@page import="com.hansung.model.DeptVO"%>
+<%@page import="java.util.List"%>
+<%@page import="com.hansung.model.DeptDAO"%>
+<%@page import="com.hansung.util.DBUtil"%>
+<%@page import="java.sql.Connection"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<%
+	DeptDAO dao = new DeptDAO();
+	//DeptVO newDept = new DeptVO(1, "경일대학교"); 
+	//dao.deptInsert(newDept);
+	dao.deptUpdate("한성대학교", 1);
+
+	List<DeptVO> deptlist = dao.selectAll();
+	for (DeptVO dept : deptlist){
+		out.println(dept+"<br>");
+	}
+	out.println("<hr>");
+
+	List<DeptVO> deptlist2 = dao.selectByName("Sales");
+	for (DeptVO dept : deptlist2){
+		out.println(dept+"<br>");
+	}
+%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+</body>
+</html>

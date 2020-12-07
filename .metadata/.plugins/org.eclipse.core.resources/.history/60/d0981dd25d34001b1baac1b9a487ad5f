@@ -1,0 +1,38 @@
+package com.hansung.model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.hansung.util.DBUtil;
+
+public class LoginDAO {
+
+	public EmpVO loginChk(int id, String pw) {
+		EmpVO emp = null;
+		Connection conn = DBUtil.getConnection();
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		String sql = "select * from employees "
+				+ "where employee_id=? and phone_number=?";
+		
+		try {
+			st = conn.prepareStatement(sql);
+			st.setInt(1, id);
+			st.setString(2, pw);
+			st.executeQuery();
+			if(rs.next()) {
+				emp = new EmpVO();
+				emp.setEmployee_id(id);
+				emp.setPhone_number(pw);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return emp;
+	}
+
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>transtion-delay</title>
+		<style>
+			.transition_div {
+				position: relative;
+				left: 10px;
+				margin-bottom: 10px;
+				padding-top: 45px;
+				text-align: center;
+				width: 200px;
+				height: 10px;
+				background: url(images/car.png) top left no-repeat;
+				background-size: contain;
+			}
+			#exsample:target .transition_div {
+				left: 400px;
+				transition-duration: 5s;
+			}
+			.sample01 {
+				transition-delay: 1s;
+			}
+			.sample02 {
+				transition-delay: 2s;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>transition-delay 속성</h1>
+		<div id="exsample">
+			<div class="transition_div sample01">
+				지연시간 1초
+			</div>
+			<div class="transition_div sample02">
+				지연시간 2초
+			</div>
+		</div>
+		<a href="#exsample">Click</a>
+	</body>
+</html>

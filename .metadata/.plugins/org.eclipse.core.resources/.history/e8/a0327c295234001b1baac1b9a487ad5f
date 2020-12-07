@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>직업 목록</h1>
+	<a href="jobsInsert">신규등록</a>
+	<hr>
+	<table border="1">
+		<tr>
+			<th>직업코드</th><th>직업이름</th><th>최저급여</th><th>최고급여</th><th></th>
+		</tr>
+	<c:forEach items="${jList}" var="jList">
+		<tr>
+			<td>${jList.job_id}</td>
+			<td><a href="jobDetail?jId=${ jList.job_id }">${jList.job_title}</a></td>
+			<td>${jList.min_salary}</td>
+			<td>${jList.max_salary}</td>
+			<td><button onclick="location.href='jobDelete?jId=${ jList.job_id }';">삭제</button></td>
+		</tr>
+	</c:forEach>
+	</table>
+</body>
+</html>

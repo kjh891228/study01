@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	// 호이스팅 : 
+	//		같은 script 안에서 호이스팅		
+	//		var로 선언된 변수들,
+	//		function 이름()
+	//		들을 맨 위로 올린다
+	//		var붙은 변수가 사용보다 아래에 있다면 undefined		(error 아님)
+	//		var붙은 변수가 아예없는데 사용했다면 not defined	(error)
+	alert(a);
+	
+	call1();
+	call2();
+	
+	call3();
+	call4();
+	
+	var a = `문자열을 저장한다. 
+			싱글, 더블쿼테이션을 이용
+			여러줄 입력문자 불가, 
+			백틱은 가능하다
+			크롬, 사파리, 엣지 등은 지원되고 
+			IE가 미지원함`;
+	
+	alert(a);
+	function call1() {
+		alert("함수1");		
+	}
+	function call2() {
+		alert("함수2");		
+	}
+</script>
+<script id="ss" src="external.js"></script>
+
+
+</head>
+<body>
+
+
+	<h1>자바스크립트 연습</h1>
+</body>
+</html>

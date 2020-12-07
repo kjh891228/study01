@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>border-color</title>
+		<style>
+			div {
+				width: 150px;
+				height: 100px;
+				font-weight: bold;
+				padding: 20px;
+				margin: 20px 5px;
+				float: left;
+				position: relative;
+				border-width:5px;
+				border-style:solid;
+			}
+			span {
+				position: absolute;
+				top: -40px;
+				left: -5px;
+				white-space: nowrap;
+			}
+			.box01 {
+				border-color: rgba(100,100,100,0.7);
+			}
+			.box02 {
+				border-color: #f00 #0f0 #00f #000 ;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>border-color 속성</h1>
+		<div class="box01">
+			<span>동일한 테두리 색상</span>
+		</div>
+		<div class="box02">
+			<span>각각 다르게 지정한 테두리 색상</span>
+		</div>
+	</body>
+</html>

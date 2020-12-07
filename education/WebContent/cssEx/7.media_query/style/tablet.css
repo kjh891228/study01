@@ -1,0 +1,10 @@
+@charset "UTF-8";
+@media screen and (min-width: 601px) and (max-width: 980px) {
+	/* 최소 너비가 601px 이상이고 최대 너비가 980px 이하일 때 */
+	div {
+		border: #054D4A solid 10px;
+		color: #FC9C04;
+		font-family: "Comic Sans MS", cursive;
+		background: url(../images/tablet.png) no-repeat 95% 95%;
+	}
+}

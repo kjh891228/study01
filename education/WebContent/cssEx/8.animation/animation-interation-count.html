@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+	<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>animation-iteration-count</title>
+		<style>
+			@-webkit-keyframes ani01{
+				from{
+					-webkit-transform:scale(0) rotate(0deg);
+				}					
+				to{
+					-webkit-transform:scale(1.0,1.0) rotate(360deg);	
+				}			}
+			@keyframes ani01{
+				from{
+					transform:scale(0) rotate(0deg);
+				}					
+				to{
+					transform:scale(1.0,1.0) rotate(360deg);	
+				}
+			}			
+			.animation_div{
+				position:absolute;
+				text-align:center;
+			}
+			.sample01{
+				left:50px;
+			}			
+			.sample02{
+				left:400px;
+			}			
+			.animation_div img{
+				-webkit-animation-name:ani01;				
+				-webkit-animation-duration:2.5s;
+				animation-name:ani01;
+				animation-duration:2.5s;
+			}
+			.sample01 img{
+				-webkit-animation-iteration-count:2;
+				animation-iteration-count:2;
+			}
+			.sample02 img{
+				-webkit-animation-iteration-count:infinite;
+				animation-iteration-count:infinite;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<h1>animation-iteration-count 속성</h1>
+	     <div class="animation_div sample01">
+	     	<img src="images/sun.png" alt="animation test image">
+	        <p>애니메이션 2회 반복</p>
+	     </div>
+	     <div class="animation_div sample02">
+	     	<img src="images/sun.png" alt="animation test image">
+	     	<p>애니메이션 무한반복</p>
+	     </div>
+	</body>
+</html>

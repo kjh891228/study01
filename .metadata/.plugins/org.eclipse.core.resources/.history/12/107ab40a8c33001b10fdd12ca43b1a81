@@ -1,0 +1,7 @@
+package com.hansung.model;
+
+public class StudentVO {
+	private String student_id, student_name, major_id;
+	
+	
+}

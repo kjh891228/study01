@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>animation-direction</title>
+		<style>
+			@-webkit-keyframes ani01{
+				from{
+					-webkit-transform:rotate(0deg);
+				}					
+				to{
+					-webkit-transform:rotate(360deg);	
+				}
+			}
+			@keyframes ani01{
+				from{
+					transform:rotate(0deg);
+				}					
+				to{
+					transform:rotate(360deg);
+				}
+			}
+			.animation_div{
+				position:absolute;
+				text-align:center;
+			}
+			.sample01{
+				left:50px;
+			}			
+			.sample02{
+				left:300px;
+			}
+			.sample03{
+				top:300px;
+				left:50px;
+			}
+			.sample04{
+				top:300px;
+				left:300px;
+			}			
+			.animation_div img{
+				width:150px;
+				height:150px;
+				-webkit-animation-name:ani01;
+				-webkit-animation-duration:2.5s;
+				-webkit-animation-timing-function:linear;
+				-webkit-animation-iteration-count:infinite;
+				animation-name:ani01;
+				animation-duration:2.5s;
+				animation-timing-function:linear;
+				animation-iteration-count:infinite;
+			}			
+			.sample01 img{				
+				-webkit-animation-direction:noraml;
+				animation-direction:noraml;
+			}
+			.sample02 img{				
+				-webkit-animation-direction:reverse;
+				animation-direction:reverse;
+			}
+			.sample03 img{				
+				-webkit-animation-direction:alternate;
+				animation-direction:alternate;				
+			}
+			.sample04 img{				
+				-webkit-animation-direction:alternate-reverse;
+				animation-direction:alternate-reverse;
+			}	
+		</style>
+	</head>	
+	<body>
+		<h1>animation-direction 속성</h1>
+	     <div class="animation_div sample01">
+	     	<img src="images/sun.png" alt="animation test image">
+	        <p>animation-direction:noraml;</p>
+	     </div>
+	     <div class="animation_div sample02">
+	     	<img src="images/sun.png" alt="animation test image">
+	     	<p>animation-direction:reverse;</p>
+	     </div>
+	     <div class="animation_div sample03">
+	     	<img src="images/sun.png" alt="animation test image">
+	        <p>animation-direction:alternate;</p>
+	     </div>
+	     <div class="animation_div sample04">
+	     	<img src="images/sun.png" alt="animation test image">
+	     	<p>animation-direction:alternate-reverse;</p>
+	     </div>
+	</body>
+</html>

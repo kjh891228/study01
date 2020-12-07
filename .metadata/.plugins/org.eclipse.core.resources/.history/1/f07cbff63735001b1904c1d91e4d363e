@@ -1,0 +1,50 @@
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%
+	//JAVA코드
+	String name = request.getParameter("myname");
+	out.println("<h1>이름 : "+name+"</h1>");
+	
+	ArrayList<String> alist = new ArrayList<>();
+	alist.add("A");
+	alist.add("B");
+	alist.add("C");
+	
+	application.setAttribute("score1", "1");
+	session.setAttribute("score2", "2");
+	request.setAttribute("score3", "3");
+	pageContext.setAttribute("score4", "4");
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>score : ${score}</h1>
+<h1>applicationScope : ${applicationScope.score1}</h1>
+<h1>sessionScope : ${sessionScope.score2}</h1>
+<h1>requestScope : ${requestScope.score3}</h1>
+<h1>pageScope : ${pageScope.score4}</h1>
+<hr>
+<h1>application : <%=application.getAttribute("score")%></h1>
+<h1>session : <%=session.getAttribute("score")%></h1>
+<h1>request : <%=request.getAttribute("score")%></h1>
+<h1>pageContext : <%=pageContext.getAttribute("score")%></h1>
+<hr>
+	<h2>이름 : <%=name%></h2>
+	<h2>이름 : ${param.myname}</h2>
+	<%for(String s : alist){%>
+		<p><%=s %></p>
+	<%}%>
+	<%request.setAttribute("names", alist); %>
+	<c:forEach var="al" items="${names}">
+		<p>${al}</p>
+	</c:forEach>
+<%@ include file="footer.jsp" %>
+<jsp:include page="footer.jsp"></jsp:include>
+</body>
+</html>

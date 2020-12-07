@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>02_JQueryDOM</title>
+<style type="text/css">
+.background {
+	background-color: orange;
+}
+
+.myborder {
+	border: 3px dotted white;
+}
+#here{
+	border: 3px dotted orange;
+}
+</style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(function() {
+		$("button").eq(0).click(f1); //class추가
+		$("button").eq(1).click(f2); //class제거
+		$("button").eq(2).click(f3); //속성접근
+		$("button").eq(3).click(f4); //속성접근
+		$("button").eq(4).click(f5); //속성접근
+		$("button").eq(5).click(f6);
+		$("button").eq(6).click(f7); //remove
+		$("button").eq(7).click(f8); //empty
+		$("button").eq(8).click(f9);
+	});
+	function f1() {
+		$("p").addClass("background");
+		$("p:odd").addClass("myborder");
+	};
+	function f2() {
+		$("p").removeClass("myborder");
+	};
+	function f3() {
+		$("img").attr("width", "50px");
+		$("img").attr("height", call);
+	};
+	function f4() {
+		var obj = {
+				"width":call,
+				"height":call
+		}
+		$("img").attr(obj);
+	};
+	function f5() {
+		var arr = ["red","orange","yellow","green"]
+		var arr2 = ["dotted","solid","double","dotted"]
+		$("img").css("border",function(idx){
+			return `${idx+5}px ${arr2[idx]} ${arr[idx]}`;
+		});
+	};
+	function call(idx) {return (idx + 1) * 50;};
+	function f6() {
+		$("p:first").html();	//tag+text
+		$("p:first").text();	//text
+		$("p:first").html("<h1>???</h1>");	//tag+text 모두 인식 적용
+		$("p").eq(1).text("<h1>???</h1>");	//teg+text 모두 텍스트로 적용
+		$("p").eq(2).html(function() {
+			return "<h1>?????</h1>";	//tag+text 모두 인식 적용
+		});
+		$("p").eq(3).text(function() {
+			return "<h1>?????</h1>";	//teg+text 모두 텍스트로 적용
+		});
+	}
+	function f7() {
+		$("p:first").remove();	//tag+text 모두지운다
+	}
+	function f8() {
+		$("p:first").empty();	//text는 지우고 tag는 남아있다
+	}
+	function f9() {
+		$("<h1></h1>").html("<span>insertBefore : #here 영역 전에 추가</span>").insertBefore("#here");
+			//insertBefore : #here 영역 전에 추가
+		$("<h2></h2>").html("<span>prependTo : #here 영역 안의 위쪽에 추가</span>").prependTo("#here");
+				//prependTo : #here 영역 안의 위쪽에 추가
+		$("<h2></h2>").html("<span>appendTo : #here 영역 안의 아래쪽에 추가</span>").appendTo("#here");
+				//appendTo : #here 영역 안의 아래쪽에 추가
+		$("<h1></h1>").html("<span>insertAfter : #here 영역 후에 추가</span>").insertAfter("#here");
+			//insertBefore : #here 영역 후에 추가
+	}
+</script>
+</head>
+<body>
+	<button>class추가</button>
+	<button>class제거</button>
+	<button>속성접근</button>
+	<button>속성접근</button>
+	<button>CSS 변경</button>
+	<button>html(),text()</button>
+	<button>제거[remove()]</button>
+	<button>제거[empty()]</button>
+	<button>append, prepend, insertBefore, insertAfter</button>
+	<hr>
+	<div id="here"></div>
+	<hr>
+	<img src="../cssEx/cssLAB/img/dog1.png">
+	<img src="../cssEx/cssLAB/img/dog2.png">
+	<img src="../cssEx/cssLAB/img/dog3.png">
+	<img src="../cssEx/cssLAB/img/dog4.png">
+	<hr>
+	<p>오늘은 <span>수</span>요일</p>
+	<p>오늘은 수요일1</p>
+	<p>오늘은 수요일2</p>
+	<p>오늘은 수요일3</p>
+	<p>오늘은 수요일4</p>
+	<p>오늘은 수요일5</p>
+	<p>오늘은 수요일6</p>
+	<p>오늘은 수요일7</p>
+	<p>오늘은 수요일8</p>
+	<p>오늘은 수요일9</p>
+	<p>오늘은 수요일10</p>
+	<p>오늘은 수요일11</p>
+</body>
+</html>

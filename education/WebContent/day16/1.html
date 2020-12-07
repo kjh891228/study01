@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function call2(){
+	alert("인라인이벤트모델");
+}
+window.onload = function(){
+	//onsubmit : input들을 서버에 전송한다. 
+	myfrm.onsubmit = function(ee){
+		var id = document.getElementById('userid').value;
+		var pwd = document.getElementById('userpass').value;
+		console.dir(ee);
+		if(id==''){			
+			alert("반드시 아이디를 입력해야한다.");
+			document.getElementById('userid').focus();
+			ee.preventDefault();//default이벤트를 막기 
+		}
+		
+	};
+	btn3.onclick = function(){
+		alert('기본이벤트모델');
+	};
+};
+
+function callSubmit(ee){
+	var id = document.getElementById('userid2').value;
+	var pwd = document.getElementById('userpass2').value;
+	if(id==''){
+		alert("반드시 아이디를 입력해야한다.");
+		document.getElementById('userid2').focus();
+		ee.preventDefault();//default이벤트를 막기 
+	}
+}
+
+
+</script>
+</head>
+<body>
+<button id="btn1" onclick="a=10;alert(a+'인라인');">인라인이벤트 모델</button>
+<button id="btn2" onclick="call2();">인라인이벤트 모델2</button>
+<button id="btn3" >기본이벤트모델</button>
+<!-- default event에 대하여  -->
+<form id="myfrm"  action="login.jsp" >
+ 아이디:<input type="text" id="userid" name="userid" value="hongGD">
+ 비밀번호:<input type="password" id="userpass" name="userpass"
+          value="1234">
+ <input type="submit" value="로그인하기">
+</form>
+<hr>
+<form id="myfrm2"  action="login.jsp" onsubmit="callSubmit(event);">
+ 아이디:<input type="text" id="userid2" name="userid" value="hongGD">
+ 비밀번호:<input type="password" id="userpass2" name="userpass"
+          value="1234">
+ <input type="submit" value="로그인하기">
+</form>
+</body>
+</html>
+
+
+
+

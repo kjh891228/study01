@@ -1,0 +1,41 @@
+package com.hansung.model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.hansung.util.DBUtil_maria;
+
+public class StudentDAO {
+	
+	public List<StudentVO> selectAll() {
+		Connection conn = DBUtil_maria.getConnection();
+		List<StudentsVO> stuList = new ArrayList<StudentsVO>();
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		String sql = "select * from students order by 1";
+		
+		try {
+			st = conn.prepareStatement(sql);
+			rs = st.executeQuery();
+			while(rs.next()) {
+				StudentsVO vo = new StudentsVO(
+						rs.getString(1), 
+						rs.getString(2), 
+						rs.getString(3));
+				stuList.add(vo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil_maria.close(conn, st, rs);
+		}
+		
+		return stuList;
+	}
+	
+}

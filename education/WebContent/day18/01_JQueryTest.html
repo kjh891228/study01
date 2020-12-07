@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+.my1 {
+	border: 1px solid red;
+}
+
+.my2 {
+	border: 2px solid orange;
+}
+
+.my3 {
+	border: 3px solid yellow;
+}
+
+.my4 {
+	border: 4px solid green;
+}
+
+.my5 {
+	border: 5px solid blue;
+}
+</style>
+<script src="../day17/jquery-3.5.1.js"></script>
+<script>
+	var arr = [ {
+		name : "NAVER",
+		url : "http://www.naver.com"
+	}, {
+		name : "DAUM",
+		url : "http://www.daum.net"
+	}, {
+		name : "YES24",
+		url : "http://www.yes24.com"
+	} ];
+	window.onload = function() {
+		btn1.onclick = function() {
+			var res = "<h2>JavaScript</h2><ul>";
+			arr.forEach(function(ele, idx) {
+				res += `<li><a href="${ele.url}">${ele.name}</a></li>`;
+			});
+			res += "</li>";
+			here.innerHTML = res;
+		}
+	}
+</script>
+<script>
+	$(function() {
+		$("#btn2").click(function() {
+			var res = "<h2>JQuery</h2><ul>";
+			$.each(arr, function(idx, ele) {
+				res += `<li><a href="${ele.url}">${ele.name}</a></li>`;
+			});
+			$("#here").html(res + "</li>");
+		});
+		$("#btn3").click(function() {
+			$("h1").css("background-color", "orange");
+		});
+		$("#btn4").click(function() {
+			$("h1").each(function(idx, ele) {
+				//console.log(idx);	//0부터시작
+				$(this).addClass("my" + (idx + 1));
+				var s = $("#here").html();
+				$("#here").html(s + $(this).text());
+				//.html(태그+텍스트), .text(텍스트만)
+			});
+		});
+		$("#btn5").click(function() {
+			var obj1 = {};
+			obj1.myname = "홍길동";
+			var obj2 = {
+				addr : "화성",
+				pNum : "02-988-8887"
+			};
+			var obj3 = {
+				pNum : "010-1222-2333",
+				sub : "10호선"
+			};
+			$.extend(obj1, obj2, obj3);
+			
+			jQuery.each(obj1, function(key,item) {
+				var s = $("#here").html();
+				$("#here").html(s +
+						`<span class="my1">${key}</span>
+						<span class="my2">${item}</span><br>`);
+			});
+		});
+	});
+</script>
+</head>
+<body>
+	<button id="btn1">동적으로 사이트정보 만들기(JavaScript)</button>
+	<button id="btn2">동적으로 사이트정보 만들기(JQuery)</button>
+	<button id="btn3">style전체적용[all](JQuery)</button>
+	<button id="btn4">style선택적용[each](JQuery)</button>
+	<hr>
+	<button id="btn5">extend</button>
+	<hr>
+	<h1>한성대1</h1>
+	<h1>한성대2</h1>
+	<h1>한성대3</h1>
+	<h1>한성대4</h1>
+	<h1>한성대5</h1>
+	<hr>
+	<div id="here"></div>
+</body>
+</html>

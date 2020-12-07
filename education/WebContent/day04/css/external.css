@@ -1,0 +1,10 @@
+@charset "UTF-8";
+h1{
+	background-color: #00ffff;
+	color: blue;	
+}
+p{
+	font-weight: bold;
+	font-family: "궁서체";
+	font-style: orange;
+}

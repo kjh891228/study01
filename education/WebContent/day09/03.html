@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function func1() {
+		var b = 30 > 20 > 10;
+		// 30>20 = true(1) // 1(true)>10 = false
+		here.innerHTML = "30>20>10 ==> " + b;
+
+		var b = 30 > 20 && 20 > 10;
+		here.innerHTML += "<br>30>20 && 20>10 ==> " + b;
+	}
+	function func2() {
+		var arr = [ "월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일" ];
+		var output = "<ol>";
+		for (let i = 0; i < arr.length; i++) {
+			output += "<li> " + arr[i] + "</li>";
+		}
+		output += "</ol>";
+		here.innerHTML = output;
+	}
+	function func3() {
+		var v1 = 10;
+		v1++; //11
+		++v1; //12
+		here.innerHTML += "<br>" + ++v1; //13 (증가 후 사용한다)
+		here.innerHTML += "<br>" + v1++; //13 (사용 후 증가한다)
+		here.innerHTML += "<br>" + v1; //14
+	}
+	function func4() {
+		var age = prompt("나이를 입력하세요", "");	//뒤의 20은 디폴트값
+		here.innerHTML+="<br>당신의 나이는 : "+age;
+	}
+	function func5() {
+		var res = confirm("수락하시겠습니까?");
+		/* if (res) {
+			here.innerHTML = "^.^";
+		} else {
+			here.innerHTML = "o.o";			
+		} */
+		
+		//3항연산자 사용하기
+		here.innerHTML += res?"^.^":"o.o";
+	}
+	function func6() {
+		var a=10;
+		a += "문자";
+		here.innerHTML = a+" ==> "+typeof(a);
+		here.innerHTML += "<br>"+ 10 + 20;		//연산자우선순위
+		console.log("계산결과 : "+ 10 + 20 - 30);	//NaN (Not a Number)
+		
+		var a = 10;
+		var b = Number("20");			//명시적형변환
+		/* var c = Number("30달러"); */		//NaN
+		/* var c = parseInt("ㄹㄹ30달러"); */	//NaN
+		var c = parseInt("30달러");		//앞에 숫자만 문자를 숫자로 변환
+		here.innerHTML += "<br>"+ (a+b+c);
+		
+	}
+</script>
+</head>
+<body>
+
+	<button id="btn1" onclick="func1();">boolean주의</button>
+	<button id="btn2" onclick="func2();">HTML에 요소추가</button>
+	<button id="btn3" onclick="func3();">증감연산자</button>
+	<button id="btn4" onclick="func4();">prompt</button>
+	<button id="btn5" onclick="func5();">confirm</button>
+	<button id="btn6" onclick="func6();">자동형변환</button>
+	<hr>
+	<div id="here"></div>
+</body>
+</html>

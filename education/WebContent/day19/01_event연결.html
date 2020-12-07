@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.active {
+	background-color: orange;
+	color: white;
+}
+
+div#here {
+	border: 3px dotted pink;
+}
+
+div p {
+	border: 3px solid blue;
+}
+
+div>p>span {
+	border: 3px solid gray;
+}
+</style>
+<script src="../day17/jquery-3.5.1.js"></script>
+<script>
+	$(function() {
+		$("button:first").on("click", call1);
+		var obj = {
+			"mouseenter" : call2,
+			"mouseleave" : call3
+		};
+		//$("h1").on(obj);
+		$("h1").hover(call2, call3);
+		$("button").eq(1).on("click", function() {
+			$("h1").off(); //모든이벤트제거
+		});
+		$("div,p,span").on("click", function(event) {
+			console.log("x = " + event.pageX + 
+						", y = " + event.pageY); //click한 좌표가 찍힘
+			alert($(this).html());
+			event.stopPropagation(); //event전달막기(부모로 전달 막기)
+		});
+		$("button").eq(2).on("click", function() {
+			$("span").trigger("click");	//event강제발생(span click)
+		});
+		$("div>a").on("click", function(event) {
+			alert($(this).text());	//얘는 실행된다
+			//event.preventDefault();	//정해진 default 기능막기(href 이동이 되지않음)
+			//event.stopPropagation();	//부모로 전달 막기
+			$(this).addClass("active");
+			return false;	//preventDefault + stopPropagation 의 기능
+		});
+	});
+	function call1(event) {
+		console.log($(event)); //event
+		console.log($(this)); //button
+		$("#here").text($(this).text());
+	}
+	function call2() {
+		$(this).addClass("active");
+		$(this).text(">_<");
+	}
+	function call3() {
+		$(this).removeClass("active");
+		$(this).text("???");
+	}
+</script>
+</head>
+<body>
+	<h1>???</h1>
+	<button>event연결[on]</button>
+	<button>event연결해제[off]</button>
+	<button>event강제발생[trigger(span.click)]</button>
+	<hr>
+	<div id="here">
+		here
+		<p>
+			내일은<span>금</span>요일!!!
+		</p>
+	</div>
+	<div id="there">
+		<a href="http://www.google.com">구글</a><br>
+		<a href="http://www.naver.com">네이버</a>
+	</div>
+</body>
+</html>

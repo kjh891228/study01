@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	/* style 적용 우선순위 (같은 속성을 적용한 경우 중요하다) */
+	/* 1. inline */
+	/* 2. ID */
+	/* 3. class */
+	/* 4. tag */
+
+	#t2{font-size: 35px; font-family: "Times New Roman","Comic Sans MS"; color:gray;}
+	.t1{font-size: 15px; font-family: 휴먼옛체,맑은고딕; color:rgb(255,0,221);}
+	p{font-size: 25px; font-weight: bold; color:#8041D9;}
+</style>
+</head>
+<body>
+	<h1>h1</h1>
+	<p class="t1"  id="t2">p	/ class:t1, id:t2</p>
+	<p class="t1">p		/ class:t1</p>
+	<p class="t1" id="t2" style="color:red; font-size:50px;">
+	p	/ class:t1, id:t2 / inline style</p>
+	<p>p</p>
+	<strong class="t1" id="t2">strong	/ class:t1, id:t2</strong>
+</body>
+</html>

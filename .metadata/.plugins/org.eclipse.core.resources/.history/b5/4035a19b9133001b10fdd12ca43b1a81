@@ -1,0 +1,82 @@
+package com.hansung.model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.hansung.util.DBUtil_maria;
+
+public class StudentsDAO {
+	
+	// 신규등록
+	public int stuInsert(StudentsVO stu) {
+		int res=0;
+		Connection conn = DBUtil_maria.getConnection();
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		String sql = "insert into students (student_id, student_name, major_id) values(?, ?, ?)";
+		
+		try {
+			st = conn.prepareStatement(sql);
+			st.setString(1, stu.getStudentsId());
+			st.setString(2, stu.getStudentsName());
+			st.setString(3, stu.getMajorId());
+			res = st.executeQuery();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil_maria.close(conn, st, rs);
+		}
+		return res;
+	}
+
+	// pk로 조회
+	public StudentsVO selectById(String stuId) {
+		StudentsVO vo = null;
+		Connection conn = DBUtil_maria.getConnection();
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		String sql = "select * from students where student_id=?";
+
+		try {
+			st = conn.prepareStatement(sql);
+			st.setString(1, stuId);
+			rs = st.executeQuery();
+			if (rs.next()) {
+				vo = new StudentsVO(rs.getString(1), rs.getString(2), rs.getString(3));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil_maria.close(conn, st, rs);
+		}
+		return vo;
+	}
+
+	// 전체조회
+	public List<StudentsVO> selectAll() {
+		Connection conn = DBUtil_maria.getConnection();
+		List<StudentsVO> stuList = new ArrayList<StudentsVO>();
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		String sql = "select * from students order by 1";
+
+		try {
+			st = conn.prepareStatement(sql);
+			rs = st.executeQuery();
+			while (rs.next()) {
+				StudentsVO vo = new StudentsVO(rs.getString(1), rs.getString(2), rs.getString(3));
+				stuList.add(vo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil_maria.close(conn, st, rs);
+		}
+		return stuList;
+	}
+
+}

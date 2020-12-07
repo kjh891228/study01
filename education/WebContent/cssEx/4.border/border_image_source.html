@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>border-image-source</title>
+		<style>
+			div{
+				position:absolute;
+				top:80px;
+				left:250px;
+				padding:5px;
+				width:200px;
+				height:140px;
+				font-weight:bold;
+				text-align:center;
+				border:#F00 solid 30px;
+				background:#eee;
+			}
+			.box{
+				-moz-border-image-source: url(images/border_image.png);
+				-webkit-border-image-source: url(images/border_image.png);
+				-o-border-image-source: url(images/border_image.png);
+				border-image-source: url(images/border_image.png);
+			}
+		</style>
+	</head>
+	
+	<body>
+		<h1>border-image-source 속성</h1>
+		<p>원본이미지 : <img src="images/border_image.png" alt="border-image-source test용 이미지"></p>
+		<div class="box">
+			border-image-source
+		</div>
+	</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+<title>내장함수</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style type="text/css">
+#here {
+	border: 5px dotted gray;
+	padding: 10px;
+	margin: 10px;
+	overflow: auto;
+}
+</style>
+<script src="../day13/external.js"></script>
+<script src="underscore-min.js"></script>
+<script>
+	var students = [];
+
+	students.push(new Student("홍길동", 1, 5, 2, 2));
+	students.push(new Student("고길동", 3, 2, 1, 5));
+	students.push(new Student("김길동", 5, 1, 3, 3));
+	students.push(new Student("김길동", 2, 3, 5, 4));
+	students.push(new Student("박길동", 6, 4, 4, 1));
+	students.push(new Student("김길동", 4, 6, 6, 6));
+
+	document.write("<p>학생정보입니다.</p>")
+	document.write(`<p>모든학생 : <br>${students}</p>`);
+	
+	//국어점수 상위 3명 출력
+	var students2 = students.sort(function (s1,s2) {
+		return s2.kor-s1.kor;	//desc by students.kor
+	}).slice(0,3);
+	document.write(`국어점수 상위 3명 : <br>${students2}`);
+</script>
+</head>
+<body>
+
+	<div class="container">
+		<h2>내장함수연습</h2>
+		<button id="btn1" type="button" class="btn btn-success">Number</button>
+	</div>
+	<hr>
+	<div id="here">
+		요기<br>
+	</div>
+
+</body>
+</html>
